@@ -1,0 +1,47 @@
+﻿<r:RibbonGroup x:Class="Osiris.Tfs.Monitor.TfsRibbonGroupView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+    >
+
+	<r:RibbonGroup.Resources>
+	</r:RibbonGroup.Resources>
+
+
+	<r:RibbonGroup.Command>
+		<r:RibbonCommand LabelTitle="Team Foundation Server"/>
+	</r:RibbonGroup.Command>
+
+	<r:RibbonGroup.GroupSizeDefinitions>
+		<r:RibbonGroupSizeDefinitionCollection>
+			<r:RibbonGroupSizeDefinition>
+				<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+				<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+			</r:RibbonGroupSizeDefinition>
+		</r:RibbonGroupSizeDefinitionCollection>
+	</r:RibbonGroup.GroupSizeDefinitions>
+
+	<r:RibbonLabel>Team Project:</r:RibbonLabel>
+	<r:RibbonLabel>Area:</r:RibbonLabel>
+
+	<l:RibbonComboBoxEx Width="160" Margin="0,3,0,0" DisplayMemberPathEx="Name" ItemsSourceEx="{Binding TeamProjects}" SelectedValueEx="{Binding Path=SelectedTeamProject}" IsEnabled="{Binding IsTeamProjectsEnabled}" ToolTip="{Binding SelectedTeamProject.Name}" IsEditable="True" IsReadOnly="True"/>
+	<l:ComboBoxTree Width="160" Margin="0,3,0,0" Height="22" DefaultText="&lt;Any&gt;" ItemsSource="{Binding TreeNodes}"/>
+
+	<r:RibbonLabel>Iteration:</r:RibbonLabel>
+	<r:RibbonLabel>Query:</r:RibbonLabel>
+
+	<l:RibbonComboBoxEx Width="160" Margin="0,3,0,0" DisplayMemberPathEx="Name" ItemsSourceEx="{Binding TeamProjects}" SelectedValueEx="{Binding Path=SelectedTeamProject}" IsEnabled="{Binding IsTeamProjectsEnabled}" ToolTip="{Binding SelectedTeamProject.Name}" IsEditable="True" IsReadOnly="True"/>
+	<l:RibbonComboBoxEx Width="160" Margin="0,3,0,0" DisplayMemberPathEx="Name" ItemsSourceEx="{Binding TeamProjects}" SelectedValueEx="{Binding Path=SelectedTeamProject}" IsEnabled="{Binding IsTeamProjectsEnabled}" ToolTip="{Binding SelectedTeamProject.Name}" IsEditable="True" IsReadOnly="True"/>
+
+	<r:RibbonLabel>WI Types:</r:RibbonLabel>
+	<r:RibbonLabel>WI States:</r:RibbonLabel>
+
+	
+	<l:ComboBoxCheckBox Width="160" Margin="0,3,0,0" Height="22" DefaultText="&lt;Any&gt;" ItemsSource="{Binding CheckNodes}"/>
+	<l:ComboBoxCheckBox Width="160" Margin="0,3,0,0" Height="22" DefaultText="&lt;Any&gt;" ItemsSource="{Binding CheckNodes}"/>
+
+
+
+
+</r:RibbonGroup>

@@ -1,0 +1,20 @@
+﻿<r:RibbonTab x:Class="Osiris.Tfs.Monitor.HomeTabView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+
+	Name="Home"
+	Label="Home" 
+	>
+
+	<!-- Clipboard -->
+	<l:ClipboardGroupView/>
+
+	<!-- Slides Group -->
+	<l:SlidesGroupView/>
+
+	<!-- Slideshow Group -->
+	<l:SlideshowGroupView/>
+
+</r:RibbonTab>

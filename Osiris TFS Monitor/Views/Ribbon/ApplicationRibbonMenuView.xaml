@@ -1,0 +1,57 @@
+﻿<r:RibbonApplicationMenu x:Class="Osiris.Tfs.Monitor.ApplicationRibbonMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+    >
+
+	<r:RibbonApplicationMenu.Resources>
+		<l:RibbonCommandEx x:Key="FileOpen" LabelTitle="Open" LabelDescription="?" ToolTipTitle="Open (Ctrl+O)" ToolTipDescription="Opens file dialog prompting for file to open." SmallImageSource="pack://application:,,,/Resources/Icons/FileOpen16x16.png" LargeImageSource="pack://application:,,,/Resources/Icons/FileOpen32x32.png" 
+			Command="{x:Static l:AppCommands.FileOpen}"/>
+		<l:RibbonCommandEx x:Key="FileSave" LabelTitle="Save" LabelDescription="?" ToolTipTitle="Save (Ctrl+S)" ToolTipDescription="Saves current document to file." SmallImageSource="pack://application:,,,/Resources/Icons/FileSave16x16.png" LargeImageSource="pack://application:,,,/Resources/Icons/FileSave32x32.png"
+			Command="{x:Static l:AppCommands.FileSave}"/>
+		<l:RibbonCommandEx x:Key="FileSaveAs" LabelTitle="SaveAs" LabelDescription="?" ToolTipTitle="Save As(F12)" ToolTipDescription="Saves current document to file." SmallImageSource="pack://application:,,,/Resources/Icons/FileSave16x16.png" LargeImageSource="pack://application:,,,/Resources/Icons/FileSave32x32.png"
+			Command="{x:Static l:AppCommands.FileSaveAs}"/>
+		<l:RibbonCommandEx x:Key="ApplicationOptions" LabelTitle="ApplicationOptions" ToolTipTitle="Options" ToolTipDescription="Opens dialog for application options." LargeImageSource="pack://application:,,,/Resources/Icons/Options32x32.png" 
+			Command="{x:Static l:AppCommands.ApplicationOptions}"/>
+		<l:RibbonCommandEx x:Key="ApplicationClose" LabelTitle="Close application" ToolTipTitle="Close application (ALT + F4)" ToolTipDescription="Closes application and exits to Windows." SmallImageSource="pack://application:,,,/Resources/Icons/Close16x16.png"
+			Command="{x:Static l:AppCommands.ApplicationClose}"/>
+		<l:RibbonCommandEx x:Key="FileNew" LabelTitle="New document" ToolTipTitle="New document (Ctrl + N)" ToolTipDescription="Created a new document." LargeImageSource="pack://application:,,,/Resources/Icons/New32x32.png"
+			Command="{x:Static l:AppCommands.ApplicationNew}"/>
+			
+	</r:RibbonApplicationMenu.Resources>
+
+
+	<r:RibbonApplicationMenu.Command>
+		<r:RibbonCommand SmallImageSource="pack://application:,,,/Resources/Icons/Osiris16x16.png" LargeImageSource="pack://application:,,,/Resources/Icons/Osiris32x32.png" />
+	</r:RibbonApplicationMenu.Command>
+
+	<r:RibbonApplicationMenu.Footer>
+		<DockPanel LastChildFill="False" >
+			<r:RibbonButton DockPanel.Dock="Right" Margin="2" Command="{StaticResource ApplicationClose}" />
+		</DockPanel>
+	</r:RibbonApplicationMenu.Footer>
+
+	<r:RibbonApplicationMenu.RecentItemList>
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Foreground="#00156E" FontWeight="Bold" FontSize="12" Margin="4,0,0,4">Recent Documents</TextBlock>
+		
+			<r:RibbonHighlightingList Grid.Row="1" MostRecentFileSelected="RecentFiles_MostRecentFileSelected" ItemsSource="{Binding RecentFiles}"/>
+		</Grid>
+
+	</r:RibbonApplicationMenu.RecentItemList>
+
+	<r:RibbonApplicationMenuItem Command="{StaticResource FileNew}"/>
+	<r:RibbonApplicationMenuItem Command="{StaticResource FileOpen}"/>
+	<r:RibbonApplicationMenuItem Command="{StaticResource FileSave}"/>
+	<r:RibbonApplicationMenuItem Command="{StaticResource FileSaveAs}"/>
+	<r:RibbonApplicationMenuItem Command="{StaticResource ApplicationOptions}" />
+
+</r:RibbonApplicationMenu>
+

@@ -1,0 +1,79 @@
+﻿<r:RibbonTab x:Class="Osiris.Tfs.Monitor.BuildMonitorMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+	Name="BuildMonitor" 
+	Label="Build Monitor"
+	Loaded="RibbonTab_Loaded"			 
+	Unloaded="RibbonTab_Unloaded"
+    >
+
+	<r:RibbonTab.Resources>
+		<r:RibbonCommand x:Key="SyncTfs" LabelTitle="Sync   TFS" ToolTipTitle="Sync TFS" ToolTipDescription="Sync TFS." LargeImageSource="pack://application:,,,/Resources/Icons/SyncTfs32x32.png"/>
+	</r:RibbonTab.Resources>
+
+	<r:RibbonGroup>
+
+		<r:RibbonGroup.Command>
+			<r:RibbonCommand LabelTitle="General"/>
+		</r:RibbonGroup.Command>
+
+		<r:RibbonGroup.GroupSizeDefinitions>
+			<r:RibbonGroupSizeDefinitionCollection>
+				<r:RibbonGroupSizeDefinition>
+					<r:RibbonControlSizeDefinition ImageSize="Large" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+				</r:RibbonGroupSizeDefinition>
+			</r:RibbonGroupSizeDefinitionCollection>
+		</r:RibbonGroup.GroupSizeDefinitions>
+
+		<r:RibbonButton Command="{StaticResource SyncTfs}" />
+
+		<r:RibbonLabel>Title:</r:RibbonLabel>
+		<r:RibbonLabel>Update interval:</r:RibbonLabel>
+
+		<l:TextBoxEx Width="110" Margin="0,3,0,0" Text="{Binding CustomTabVm.Title, UpdateSourceTrigger=PropertyChanged}" />
+		<l:RibbonComboBoxDuration SelectedValueEx="{Binding CustomTabVm.UpdateInterval}" IsEditable="True" Width="110" Margin="0,3,0,0" Style="{StaticResource ErrorTemplate}"/>
+
+		<r:RibbonLabel>Columns:</r:RibbonLabel>
+		<r:RibbonLabel>Rows:</r:RibbonLabel>
+
+		<l:TextBoxEx Width="40" Margin="0,3,0,0" Text="{Binding CustomTabVm.Columns, UpdateSourceTrigger=PropertyChanged}" />
+		<l:TextBoxEx Width="40" Margin="0,3,0,0" Text="{Binding CustomTabVm.Rows, UpdateSourceTrigger=PropertyChanged}" />
+
+
+	</r:RibbonGroup>
+
+	<r:RibbonGroup>
+
+		<r:RibbonGroup.Command>
+			<r:RibbonCommand LabelTitle="Build Filter"/>
+		</r:RibbonGroup.Command>
+
+		<r:RibbonGroup.GroupSizeDefinitions>
+			<r:RibbonGroupSizeDefinitionCollection>
+				<r:RibbonGroupSizeDefinition>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+				</r:RibbonGroupSizeDefinition>
+			</r:RibbonGroupSizeDefinitionCollection>
+		</r:RibbonGroup.GroupSizeDefinitions>
+
+		<r:RibbonLabel>Team Projects:</r:RibbonLabel>
+		<r:RibbonLabel>Build Status:</r:RibbonLabel>
+		
+		<l:ComboBoxCheckBox x:Name="_teamProjects" IsEnabled="{Binding CustomTabVm.IsTeamProjectsEnabled}" Width="200" Margin="0,3,0,0" Height="22" DefaultText="&lt;Any&gt;" ItemsSource="{Binding CustomTabVm.TeamProjects}"/>
+		<l:ComboBoxCheckBox x:Name="_buildStatus" Width="200" Margin="0,3,0,0" Height="22" DefaultText="&lt;None&gt;" ItemsSource="{Binding CustomTabVm.BuildStatus}"/>
+
+
+	</r:RibbonGroup>
+
+</r:RibbonTab>

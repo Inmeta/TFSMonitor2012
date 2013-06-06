@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="Osiris.Tfs.Monitor.ApplicationVM" Collapsed="true">
+    <Position X="5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAQABAgAAAAAQAgHAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ApplicationVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Osiris.Tfs.Monitor.ViewModelBase" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Osiris.Tfs.Monitor.SlideTypeVM" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ApplicationRibbonVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Osiris.Tfs.Monitor.BurndownSlideTypeVM" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ApplicationRibbonVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Osiris.Tfs.Monitor.ApplicationRibbonVM" Collapsed="true">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ApplicationRibbonVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Osiris.Tfs.Monitor.ApplicationOptionsVM" Collapsed="true">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAAAEAAAAAAAAAAgACAAAAAAAAAIAAgAAADAAAA=</HashCode>
+      <FileName>ViewModels\ApplicationOptionsVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Osiris.Tfs.Monitor.DocumentExplorerVM" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>ViewModels\DocumentExplorerVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Osiris.Tfs.Monitor.TfsOptionsVM" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>ViewModels\TfsOptionsVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Osiris.Tfs.Monitor.OptionVM" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQQAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>ViewModels\OptionVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Osiris.Tfs.Monitor.IApplicationView" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAQAAACAAAA=</HashCode>
+      <FileName>ViewModels\IApplicationView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

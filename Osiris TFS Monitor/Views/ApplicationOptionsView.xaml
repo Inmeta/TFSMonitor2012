@@ -1,0 +1,84 @@
+﻿<l:DialogWindow x:Class="Osiris.Tfs.Monitor.ApplicationOptionsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+    Title="TFS Monitor Options" Height="400" Width="500" 
+	ResizeMode="CanResizeWithGrip"
+	WindowStartupLocation="CenterOwner"
+	Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+	Loaded="DialogWindow_Loaded"
+	ShowInTaskbar="False"
+	>
+
+	<Window.Resources>
+		<DataTemplate DataType="{x:Type l:TfsOptionsVm}">
+			<l:TfsOptionsView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type l:SlideshowOptionsVm}">
+			<l:SlideshowOptionsView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type l:TfsIntegrationOptionsVm}">
+			<l:TfsIntegrationOptionsView/>
+		</DataTemplate>
+	</Window.Resources>
+
+	<!-- Set datacontext from ViewModelLocator -->
+	<Window.DataContext>
+		<Binding Path="ApplicationOptionsVm" Source="{StaticResource ViewModelLocator}"/>
+	</Window.DataContext>
+
+	<Grid Margin="6,7,6,8">
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<Grid Margin="0,0,6,0">
+			
+			<ListView ItemsSource="{Binding Options}" Margin="2" Width="100" BorderThickness="0" DisplayMemberPath="Name" SelectedValue="{Binding SelectedOption}"/>
+
+			<Border BorderBrush="#828790" BorderThickness="1"/>
+		</Grid>
+
+		<Grid Grid.Column="1">
+			<Grid Margin="2" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+				<Grid.Resources>
+					<LinearGradientBrush x:Key="BkBrush">
+						<GradientStop Color="#D0EEFE" Offset="0"/>
+						<GradientStop Color="#68C7FD" Offset="1"/>
+					</LinearGradientBrush>
+				</Grid.Resources>
+				
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+
+				
+				<StackPanel Orientation="Horizontal" Background="{StaticResource BkBrush}">
+					<Image Source="{Binding SelectedOption.Icon}" Width="32" Height="32" Margin="8,4,4,8"/>
+					<TextBlock Text="{Binding SelectedOption.Description}" VerticalAlignment="Center"/>
+				</StackPanel>
+
+				<ContentPresenter Margin="4,8,4,4" Grid.Row="1" Content="{Binding SelectedOption}" DataContext="{Binding SelectedOption}"/>
+
+			</Grid>
+			<Border BorderBrush="#828790" BorderThickness="1"/>
+		</Grid>
+
+
+		<StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,4,1,0" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Style="{StaticResource SmallButtonStyle}" IsDefault="True" Command="{Binding OkCommand}">Ok</Button>
+			<Button Margin="8,0,0,0" Style="{StaticResource SmallButtonStyle}" Command="{Binding CancelCommand}">Cancel</Button>
+		</StackPanel>
+
+
+	</Grid>
+</l:DialogWindow>

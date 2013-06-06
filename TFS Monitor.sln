@@ -1,0 +1,178 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Text", "Text", "{9C1B4ADB-F7C3-4B38-8F9B-6347AF7E590F}"
+	ProjectSection(SolutionItems) = preProject
+		Scetch.txt = Scetch.txt
+		Slideshow.txt = Slideshow.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{674A3B4D-9856-46C1-B154-52473609B691}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\RibbonControlsLibrary.dll = Libs\RibbonControlsLibrary.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CAL", "CAL", "{0D4FC989-812A-4215-8588-1B80A0F77C70}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\CAL\Microsoft.Practices.Composite.dll = Libs\CAL\Microsoft.Practices.Composite.dll
+		Libs\CAL\Microsoft.Practices.Composite.pdb = Libs\CAL\Microsoft.Practices.Composite.pdb
+		Libs\CAL\Microsoft.Practices.Composite.Presentation.dll = Libs\CAL\Microsoft.Practices.Composite.Presentation.dll
+		Libs\CAL\Microsoft.Practices.Composite.Presentation.pdb = Libs\CAL\Microsoft.Practices.Composite.Presentation.pdb
+		Libs\CAL\Microsoft.Practices.Composite.Presentation.xml = Libs\CAL\Microsoft.Practices.Composite.Presentation.xml
+		Libs\CAL\Microsoft.Practices.Composite.xml = Libs\CAL\Microsoft.Practices.Composite.xml
+		Libs\CAL\Microsoft.Practices.ObjectBuilder2.dll = Libs\CAL\Microsoft.Practices.ObjectBuilder2.dll
+		Libs\CAL\Microsoft.Practices.ObjectBuilder2.pdb = Libs\CAL\Microsoft.Practices.ObjectBuilder2.pdb
+		Libs\CAL\Microsoft.Practices.ServiceLocation.dll = Libs\CAL\Microsoft.Practices.ServiceLocation.dll
+		Libs\CAL\Microsoft.Practices.ServiceLocation.xml = Libs\CAL\Microsoft.Practices.ServiceLocation.xml
+		Libs\CAL\Microsoft.Practices.Unity.Configuration.dll = Libs\CAL\Microsoft.Practices.Unity.Configuration.dll
+		Libs\CAL\Microsoft.Practices.Unity.Configuration.pdb = Libs\CAL\Microsoft.Practices.Unity.Configuration.pdb
+		Libs\CAL\Microsoft.Practices.Unity.dll = Libs\CAL\Microsoft.Practices.Unity.dll
+		Libs\CAL\Microsoft.Practices.Unity.pdb = Libs\CAL\Microsoft.Practices.Unity.pdb
+		Libs\CAL\Microsoft.Practices.Unity.StaticFactory.dll = Libs\CAL\Microsoft.Practices.Unity.StaticFactory.dll
+		Libs\CAL\Microsoft.Practices.Unity.StaticFactory.pdb = Libs\CAL\Microsoft.Practices.Unity.StaticFactory.pdb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MS Test", "MS Test", "{0591663B-3DBA-4382-B56B-55258C52DE0A}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		Osiris TFS Monitor.vsmdi = Osiris TFS Monitor.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsMonitor.Application.Wpf", "Osiris TFS Monitor\TfsMonitor.Application.Wpf.csproj", "{A4FE15D5-F164-4BA7-8F20-F333852D6413}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsMonitor.Domain", "Osiris TFS Monitor Models\TfsMonitor.Domain.csproj", "{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsMonitor.Tests", "Osiris TFS Monitor Tests\TfsMonitor.Tests.csproj", "{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsMonitor.Helpers", "Osiris TFS Monitor Common\TfsMonitor.Helpers.csproj", "{5C6FCE98-84B6-473A-A30C-E373353B338B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TeamFoundation", "TeamFoundation", "{159CE5DC-3F96-4070-834A-E957D1422965}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsMonitor.Application.Controls", "Osiris TFS Monitor Controls\TfsMonitor.Application.Controls.csproj", "{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{980841F9-107B-43C7-A80A-2A4DCADD0C3C}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Osiris TFS Monitor1.vsmdi = Osiris TFS Monitor1.vsmdi
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Twitterizer", "Twitterizer", "{96D776BF-9420-4150-84C6-459CAD632DEE}"
+	ProjectSection(SolutionItems) = preProject
+		Libs\Twitterizer\GettingStarted.txt = Libs\Twitterizer\GettingStarted.txt
+		Libs\Twitterizer\Json.NET.license.txt = Libs\Twitterizer\Json.NET.license.txt
+		Libs\Twitterizer\Newtonsoft.Json.dll = Libs\Twitterizer\Newtonsoft.Json.dll
+		Libs\Twitterizer\Twitterizer.Data.dll = Libs\Twitterizer\Twitterizer.Data.dll
+		Libs\Twitterizer\Twitterizer2.Asynchronous.dll = Libs\Twitterizer\Twitterizer2.Asynchronous.dll
+		Libs\Twitterizer\Twitterizer2.dll = Libs\Twitterizer\Twitterizer2.dll
+		Libs\Twitterizer\Twitterizer2.license.txt = Libs\Twitterizer\Twitterizer2.license.txt
+		Libs\Twitterizer\Twitterizer2.Streaming.dll = Libs\Twitterizer\Twitterizer2.Streaming.dll
+	EndProjectSection
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "TfsMonitor.Bullshit.Setup", "TfsMonitor.Bullshit.Setup\TfsMonitor.Bullshit.Setup.wixproj", "{77D769F9-AF28-4183-98EF-A03518DBAD4B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.osiris.no:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = TfsMonitor.Bullshit.Setup\\TfsMonitor.Bullshit.Setup.wixproj
+		SccProjectName0 = TfsMonitor.Bullshit.Setup
+		SccLocalPath0 = TfsMonitor.Bullshit.Setup
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = Osiris\u0020TFS\u0020Monitor\u0020Models\\TfsMonitor.Domain.csproj
+		SccProjectName2 = Osiris\u0020TFS\u0020Monitor\u0020Models
+		SccLocalPath2 = Osiris\u0020TFS\u0020Monitor\u0020Models
+		SccProjectUniqueName3 = Osiris\u0020TFS\u0020Monitor\u0020Tests\\TfsMonitor.Tests.csproj
+		SccProjectName3 = Osiris\u0020TFS\u0020Monitor\u0020Tests
+		SccLocalPath3 = Osiris\u0020TFS\u0020Monitor\u0020Tests
+		SccProjectUniqueName4 = Osiris\u0020TFS\u0020Monitor\\TfsMonitor.Application.Wpf.csproj
+		SccProjectName4 = Osiris\u0020TFS\u0020Monitor
+		SccLocalPath4 = Osiris\u0020TFS\u0020Monitor
+		SccProjectUniqueName5 = Osiris\u0020TFS\u0020Monitor\u0020Common\\TfsMonitor.Helpers.csproj
+		SccProjectName5 = Osiris\u0020TFS\u0020Monitor\u0020Common
+		SccLocalPath5 = Osiris\u0020TFS\u0020Monitor\u0020Common
+		SccProjectUniqueName6 = Osiris\u0020TFS\u0020Monitor\u0020Controls\\TfsMonitor.Application.Controls.csproj
+		SccProjectName6 = Osiris\u0020TFS\u0020Monitor\u0020Controls
+		SccLocalPath6 = Osiris\u0020TFS\u0020Monitor\u0020Controls
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Osiris TFS Monitor1.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A4FE15D5-F164-4BA7-8F20-F333852D6413}.Release|x86.ActiveCfg = Release|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}.Release|x86.ActiveCfg = Release|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F37DB630-E0A9-4216-9CAD-68241C9C7FF0}.Release|x86.ActiveCfg = Release|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5C6FCE98-84B6-473A-A30C-E373353B338B}.Release|x86.ActiveCfg = Release|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}.Release|x86.ActiveCfg = Release|Any CPU
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Debug|x86.ActiveCfg = Debug|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Debug|x86.Build.0 = Debug|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|Any CPU.ActiveCfg = Release|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|x86.ActiveCfg = Release|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D4FC989-812A-4215-8588-1B80A0F77C70} = {674A3B4D-9856-46C1-B154-52473609B691}
+		{159CE5DC-3F96-4070-834A-E957D1422965} = {674A3B4D-9856-46C1-B154-52473609B691}
+		{96D776BF-9420-4150-84C6-459CAD632DEE} = {674A3B4D-9856-46C1-B154-52473609B691}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,63 @@
+﻿<r:RibbonGroup x:Class="Osiris.Tfs.Monitor.SlidesGroupView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+    >
+
+	<r:RibbonGroup.Resources>
+		<l:RibbonCommandEx x:Key="SlideNew" LabelTitle="New Slide" ToolTipTitle="New Slide" ToolTipDescription="New Slide." LargeImageSource="pack://application:,,,/Resources/Icons/NewSlide2_32x32.png"
+				Command="{x:Static l:AppCommands.SlideNew}"/>
+		<l:RibbonCommandEx x:Key="Refresh" LabelTitle="Refresh Slide" ToolTipTitle="Refresh Slide" ToolTipDescription="Refreshes selected slide." LargeImageSource="pack://application:,,,/Resources/Icons/Refresh32x32.png"
+			Command="{x:Static l:AppCommands.SlideRefresh}"/>
+		<l:RibbonCommandEx x:Key="SlideShowPlay" LabelTitle="Start SlideShow" ToolTipTitle="Start SlideShow From Beginning (F5)" ToolTipDescription="Start slideshow from first slide." LargeImageSource="pack://application:,,,/Resources/Icons/SlidePlay32x32.png"
+			Command="{x:Static l:AppCommands.SlideShowFromBeginning}"/>
+	</r:RibbonGroup.Resources>
+
+	<r:RibbonGroup.Command>
+		<r:RibbonCommand LabelTitle="Slides"/>
+	</r:RibbonGroup.Command>
+
+	<r:RibbonGroup.GroupSizeDefinitions>
+		<r:RibbonGroupSizeDefinitionCollection>
+			<r:RibbonGroupSizeDefinition>
+				<r:RibbonControlSizeDefinition ImageSize="Large" IsLabelVisible="True"/>
+				<r:RibbonControlSizeDefinition ImageSize="Large" IsLabelVisible="True"/>
+			</r:RibbonGroupSizeDefinition>
+		</r:RibbonGroupSizeDefinitionCollection>
+	</r:RibbonGroup.GroupSizeDefinitions>
+
+	<r:RibbonSplitButton Command="{StaticResource SlideNew}" Name="SlideNewButton">
+		<r:RibbonSplitButton.Resources>
+            <DataTemplate DataType="{x:Type l:BurndownChartTemplateVm}">
+				<MenuItem Header="Burndown Chart" Command="{StaticResource SlideNew}" CommandParameter="{Binding}">
+					<MenuItem.Icon>
+						<Image Source="pack://application:,,,/Resources/Icons/BurndownChart32x32.png" Width="16" Height="16" />
+					</MenuItem.Icon>
+				</MenuItem>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type l:BuildMonitorTemplateVm}">
+                <MenuItem Header="Build Monitor" Command="{StaticResource SlideNew}" CommandParameter="{Binding}">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/Resources/Icons/BuildMonitor32x32.png" Width="16" Height="16" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type l:WebPageTemplateVm}">
+                <MenuItem Header="Web Page" Command="{StaticResource SlideNew}" CommandParameter="{Binding}">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/Resources/Icons/WebPage32x32.png" Width="16" Height="16" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </DataTemplate>
+        </r:RibbonSplitButton.Resources>
+		<r:RibbonSplitButton.Items>
+
+			<ItemsControl ItemsSource="{Binding SlideTemplates}"/>
+
+		</r:RibbonSplitButton.Items>
+	</r:RibbonSplitButton>
+
+	<r:RibbonButton Command="{StaticResource Refresh}" />
+
+</r:RibbonGroup>

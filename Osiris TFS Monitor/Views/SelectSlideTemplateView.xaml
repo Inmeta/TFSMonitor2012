@@ -1,0 +1,95 @@
+﻿<l:DialogWindow x:Class="Osiris.Tfs.Monitor.SelectSlideTemplateView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    Title="New Slide" Height="300" Width="400" 
+	ResizeMode="CanResizeWithGrip"
+	WindowStartupLocation="CenterOwner"
+	Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+	Loaded="DialogWindow_Loaded"
+	>
+
+	<Grid Margin="6,7,6,8">
+
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<Grid Margin="0,0,0,0">
+
+			
+			<Grid>
+
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition />
+				</Grid.RowDefinitions>
+
+				<Grid>
+					<Rectangle Fill="#DDE7EE" Margin="2,2,2,0"/>
+					<TextBlock Margin="8,2,8,4" Foreground="#00156E" FontSize="12" FontWeight="SemiBold">Templates</TextBlock>
+					<Rectangle Margin="2,0,2,0" Fill="#C5C5C5" Height="1" VerticalAlignment="Bottom"/>
+				</Grid>
+				
+				<ListView Name="_listView" Grid.Row="1" ItemsSource="{Binding Templates}" Margin="2" BorderThickness="0" SelectedItem="{Binding Selected}">
+					
+					<ListView.Resources>
+						
+						<!-- Icon/Text for Blank Slide Template-->
+						<DataTemplate DataType="{x:Type l:BlankSlideTemplateVm}">
+							<StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="4">
+								<Image Source="pack://application:,,,/Resources/Icons/BlankSlide32x32.png" Width="32" Height="32" />
+								<TextBlock Text="{Binding DisplayName}"/>
+							</StackPanel>
+						</DataTemplate>
+
+						<!-- Icon/Text for Burndownchart Template-->
+						<DataTemplate DataType="{x:Type l:BurndownChartTemplateVm}">
+							<StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="4">
+								<Image Source="pack://application:,,,/Resources/Icons/BurndownChart32x32.png" Width="32" Height="32" />
+								<TextBlock Text="{Binding DisplayName}"/>
+							</StackPanel>
+						</DataTemplate>
+
+						<!-- Icon/Text for Burndownchart Template-->
+						<DataTemplate DataType="{x:Type l:BuildMonitorTemplateVm}">
+							<StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="4">
+								<Image Source="pack://application:,,,/Resources/Icons/BuildMonitor32x32.png" Width="32" Height="32" />
+								<TextBlock Text="{Binding DisplayName}"/>
+							</StackPanel>
+						</DataTemplate>
+
+						<!-- Icon/Text for WebPage Template-->
+						<DataTemplate DataType="{x:Type l:WebPageTemplateVm}">
+							<StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="4">
+								<Image Source="pack://application:,,,/Resources/Icons/WebPage32x32.png" Width="32" Height="32" />
+								<TextBlock Text="{Binding DisplayName}"/>
+							</StackPanel>
+						</DataTemplate>
+
+					</ListView.Resources>
+
+					<!-- Arrangement of items in ListView -->
+					<ListView.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel/>
+						</ItemsPanelTemplate>
+					</ListView.ItemsPanel>
+
+				</ListView>
+			</Grid>
+
+			<Border BorderBrush="#7F9DB9" BorderThickness="1"/>
+
+		</Grid>
+
+		<StackPanel Grid.Row="1" Margin="0,4,1,0" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Style="{StaticResource SmallButtonStyle}" IsDefault="True" Command="{Binding OkCommand}">Ok</Button>
+			<Button Margin="8,0,0,0" Style="{StaticResource SmallButtonStyle}" Command="{Binding CancelCommand}">Cancel</Button>
+		</StackPanel>
+
+	</Grid>
+
+</l:DialogWindow>

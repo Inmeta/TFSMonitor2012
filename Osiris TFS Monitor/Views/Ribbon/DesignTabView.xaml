@@ -1,0 +1,61 @@
+﻿<r:RibbonTab x:Class="Osiris.Tfs.Monitor.DesignTabView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+	Label="Design" 
+	GroupSizeReductionOrder="Design"
+	>
+
+	<r:RibbonTab.Resources>
+		<l:RibbonCommandEx x:Key="SlideEdit" LabelTitle="Design Mode" ToolTipTitle="Design Mode" ToolTipDescription="Edit Slide." LargeImageSource="pack://application:,,,/Resources/Icons/DesignMode32x32.png"
+		Command="{x:Static l:AppCommands.SlideEdit}"/>
+		<l:RibbonCommandEx x:Key="InsertWebPage" LabelTitle="Web Page" LabelDescription="?" ToolTipTitle="..." ToolTipDescription="..." LargeImageSource="pack://application:,,,/Resources/Icons/WebPage32x32.png"
+		Command="{x:Static l:AppCommands.InsertSlideElement}"/>
+		<l:RibbonCommandEx x:Key="InsertBurndownChart" LabelTitle="Burndown Chart" LabelDescription="?" ToolTipTitle="..." ToolTipDescription="..." LargeImageSource="pack://application:,,,/Resources/Icons/BurndownChart32x32.png"
+		Command="{x:Static l:AppCommands.InsertSlideElement}"/>
+		<l:RibbonCommandEx x:Key="InsertBuildMonitor" LabelTitle="Build Monitor" LabelDescription="?" ToolTipTitle="..." ToolTipDescription="..." LargeImageSource="pack://application:,,,/Resources/Icons/BuildMonitor32x32.png"
+		Command="{x:Static l:AppCommands.InsertSlideElement}"/>
+		<l:RibbonCommandEx x:Key="InsertTwitter" LabelTitle="Twitter Feed" LabelDescription="?" ToolTipTitle="..." ToolTipDescription="..." LargeImageSource="pack://application:,,,/Resources/Icons/Twitter32x32.png"
+		Command="{x:Static l:AppCommands.InsertSlideElement}"/>
+	</r:RibbonTab.Resources>
+
+		<r:RibbonGroup HasDialogLauncher="False">
+			<r:RibbonGroup.Command>
+				<r:RibbonCommand LabelTitle="Edit"/>
+			</r:RibbonGroup.Command>
+
+			<r:RibbonGroup.GroupSizeDefinitions>
+				<r:RibbonGroupSizeDefinitionCollection>
+					<r:RibbonGroupSizeDefinition>
+						<r:RibbonControlSizeDefinition ImageSize="Large" IsLabelVisible="True"/>
+					</r:RibbonGroupSizeDefinition>
+				</r:RibbonGroupSizeDefinitionCollection>
+			</r:RibbonGroup.GroupSizeDefinitions>
+	
+			<r:RibbonToggleButton Command="{StaticResource SlideEdit}" Name="SlideEdit" IsChecked="{Binding DesignMode}"/>
+
+		</r:RibbonGroup>
+
+		<r:RibbonGroup>
+			<r:RibbonGroup.Command>
+				<r:RibbonCommand LabelTitle="Insert"/>
+			</r:RibbonGroup.Command>
+
+			<r:RibbonGroup.GroupSizeDefinitions>
+				<r:RibbonGroupSizeDefinitionCollection>
+					<r:RibbonGroupSizeDefinition>
+						<r:RibbonControlSizeDefinition ImageSize="Large" IsLabelVisible="True"/>
+					</r:RibbonGroupSizeDefinition>
+				</r:RibbonGroupSizeDefinitionCollection>
+			</r:RibbonGroup.GroupSizeDefinitions>
+
+
+			<r:RibbonButton x:Name="_test" Command="{StaticResource InsertWebPage}" CommandParameter="{Binding WebPageType}"/>
+			<r:RibbonButton Command="{StaticResource InsertBurndownChart}" CommandParameter="{Binding BurndownChartType}"/>
+			<r:RibbonButton Command="{StaticResource InsertBuildMonitor}" CommandParameter="{Binding BuildMonitorType}"/>
+			<r:RibbonButton Command="{StaticResource InsertTwitter}" CommandParameter="{Binding TwitterType}"/>
+	</r:RibbonGroup>
+
+
+</r:RibbonTab>

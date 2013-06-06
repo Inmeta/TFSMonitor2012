@@ -1,0 +1,92 @@
+﻿<Window x:Class="Osiris.Tfs.Monitor.SlidePropView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Slide Properties" 
+	Height="300" 
+	Width="300"
+	WindowStartupLocation="CenterOwner"
+	Loaded="UserControl_Loaded"
+	Closing="Window_Closing"
+	>
+
+	
+	<Grid Margin="5,5,5,5">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+
+		<TabControl Background="{StaticResource GradientBackgroundBrush}" Padding="0,4,0,0">
+
+			<TabItem Header="General">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+
+					<Label Margin="0,0,0,0" Content="Name:" VerticalAlignment="Center"/>
+					<TextBox x:Name="_name" Grid.Column="1" Margin="0,0,2,0" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" TextWrapping="NoWrap" />
+
+					<Label Margin="0,0,0,0" Grid.Row="1" Content="Duration:" VerticalAlignment="Center"/>
+					<ComboBox x:Name="_duration" Grid.Row="1" Grid.Column="1" Margin="0,0,2,0" Width="100" HorizontalAlignment="Left"
+					SelectedValue="{Binding Duration}" SelectedValuePath="Tag">
+						<ComboBoxItem Content="10 seconds" Tag="10" />
+						<ComboBoxItem Content="30 seconds" Tag="30" />
+						<ComboBoxItem Content="1 minute" Tag="60" />
+						<ComboBoxItem Content="5 minutes" Tag="300" />
+					</ComboBox>
+
+					<GroupBox Grid.Row="2" Grid.ColumnSpan="2" Header="Background" Padding="4" Margin="4">
+
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="4"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="4"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+
+							<RadioButton Grid.Row="0" VerticalAlignment="Center" GroupName="Background" IsChecked="{Binding BackgroundColorChecked}">Color</RadioButton>
+							<TextBlock Grid.Column="2" Text="(Black)"/>
+							
+							<RadioButton Grid.Row="2" VerticalAlignment="Center" GroupName="Background" IsChecked="{Binding BackgroundImageChecked}">Image</RadioButton>
+							<Grid Grid.Row="2" Grid.Column="2">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+								<TextBox Text="{Binding Path=BackgroundImage, UpdateSourceTrigger=PropertyChanged}"/>
+								<Button Grid.Column="1" Style="{StaticResource SmallButtonStyle}" Width="21">...</Button>
+							</Grid>
+						</Grid>
+
+					</GroupBox>
+
+				</Grid>
+			</TabItem>
+
+			<TabItem Name="_slideTab" Header="">
+				<DockPanel x:Name="_dockPanel"/>
+			</TabItem>
+			
+		</TabControl>
+
+		<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="1" Margin="0,8,0,0">
+			<Button x:Name="_ok" Click="Ok_Click" IsEnabled="{Binding CanSaveSlide}">Ok</Button>
+			<Button Margin="5,0,0,0" Click="Cancel_Click">Cancel</Button>
+		</StackPanel>
+
+	</Grid>
+</Window>

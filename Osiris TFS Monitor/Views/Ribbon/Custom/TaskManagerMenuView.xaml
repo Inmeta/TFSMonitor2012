@@ -1,0 +1,31 @@
+﻿<r:RibbonTab x:Class="Osiris.Tfs.Monitor.TaskManagerMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+	Name="TaskManager" 
+	Label="Task Manager"
+	Loaded="RibbonTab_Loaded"			 
+	Unloaded="RibbonTab_Unloaded"
+    >
+
+	<r:RibbonTab.Resources>
+	</r:RibbonTab.Resources>
+
+	<r:RibbonGroup>
+
+		<r:RibbonGroup.Command>
+			<r:RibbonCommand LabelTitle="General"/>
+		</r:RibbonGroup.Command>
+
+		<r:RibbonGroup.GroupSizeDefinitions>
+			<r:RibbonGroupSizeDefinitionCollection>
+				<r:RibbonGroupSizeDefinition>
+				</r:RibbonGroupSizeDefinition>
+			</r:RibbonGroupSizeDefinitionCollection>
+		</r:RibbonGroup.GroupSizeDefinitions>
+
+
+	</r:RibbonGroup>
+
+</r:RibbonTab>

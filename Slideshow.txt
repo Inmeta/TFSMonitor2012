@@ -1,0 +1,38 @@
+[ Home ]	
+|  ____	 									|													  | 														  
+| |Ikon|  	 Slide Duration:      [ 10 sec   |v]	|
+| |____|	 Refresh Slide every: [ 1 second |v]	|
+|  Run		 Use monitor:         [ Any      |v]	|
+| Slides... 								|
+|-------------------------------------------|
+| Slide Show 								|
+ -------------------------------------------
+
+
+Monitor:  [ Any						|v]
+          | [ ] Primary (DELL ...)	  |
+          | [ ] Secondary (DELL ...)  |
+
+
+-- Monitors ---------------------------------------------
+|														|
+| Use monitor(s):		[ <All> 				  |v]	|
+|                		| [ ] Primary (Dell..)		|	|
+|						| [ ] Secondary (Dell..)	|	|
+|                		| [ ] Display3 (Samsung..)  |	|
+|						| [ ] Display4 (Samsung..)  |	|
+|_______________________________________________________|
+
+
+
+?
+
+10 slides, 1 skjerm --> Rotate
+
+2 slides 2 skjerm : Rotate (unless slide selects sreen)
+
+1 slide 2 skjerm: Fill (unless slide selects screen)
+
+
+
+[ ] Same Slide on all monitors

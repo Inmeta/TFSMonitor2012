@@ -1,0 +1,33 @@
+﻿<r:RibbonGroup x:Class="Osiris.Tfs.Monitor.ClipboardGroupView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+    >
+
+	<r:RibbonGroup.Resources>
+			
+		<r:RibbonCommand x:Key="Paste" LabelTitle="Paste" LabelDescription="?" ToolTipTitle="Paste (Ctrl+V)" ToolTipDescription="Paste the contents of the clipboard." LargeImageSource="pack://application:,,,/Resources/Icons/Paste32x32.png" />
+		<r:RibbonCommand x:Key="Cut" LabelTitle="Cut" LabelDescription="?" ToolTipTitle="Cut (Ctrl+X)" ToolTipDescription="Cut selection and put it in the clipboard." SmallImageSource="pack://application:,,,/Resources/Icons/Cut16x16.png"/>
+		<r:RibbonCommand x:Key="Copy" LabelTitle="Copy" LabelDescription="?" ToolTipTitle="Copy (Ctrl+C)" ToolTipDescription="Copy selection and put it in the clipboard." SmallImageSource="pack://application:,,,/Resources/Icons/Copy16x16.png"/>
+
+	</r:RibbonGroup.Resources>
+
+	<r:RibbonGroup.Command>
+		<r:RibbonCommand LabelTitle="Clipboard"/>
+	</r:RibbonGroup.Command>
+	<r:RibbonGroup.GroupSizeDefinitions>
+		<r:RibbonGroupSizeDefinitionCollection>
+			<r:RibbonGroupSizeDefinition>
+				<r:RibbonControlSizeDefinition ImageSize="Large" IsLabelVisible="True"/>
+				<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+				<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+			</r:RibbonGroupSizeDefinition>
+		</r:RibbonGroupSizeDefinitionCollection>
+	</r:RibbonGroup.GroupSizeDefinitions>
+
+	<r:RibbonButton Command="{StaticResource Paste}" />
+	<r:RibbonButton Command="{StaticResource Cut}"  />
+	<r:RibbonButton Command="{StaticResource Copy}" />
+
+</r:RibbonGroup>

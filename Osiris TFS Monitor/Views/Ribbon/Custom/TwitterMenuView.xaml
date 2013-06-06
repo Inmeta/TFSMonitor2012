@@ -1,0 +1,59 @@
+﻿<r:RibbonTab x:Class="Osiris.Tfs.Monitor.TwitterMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+    xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+	Name="TwitterFeed" 
+	Label="Twitter Feed"
+	Loaded="RibbonTab_Loaded"			 
+	Unloaded="RibbonTab_Unloaded"
+    >
+
+	<r:RibbonTab.Resources>
+	</r:RibbonTab.Resources>
+
+	<r:RibbonGroup>
+
+		<r:RibbonGroup.Command>
+			<r:RibbonCommand LabelTitle="Settings"/>
+		</r:RibbonGroup.Command>
+
+		<r:RibbonGroup.GroupSizeDefinitions>
+			<r:RibbonGroupSizeDefinitionCollection>
+				<r:RibbonGroupSizeDefinition>
+					<r:RibbonControlSizeDefinition ImageSize="Large" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+					<r:RibbonControlSizeDefinition ImageSize="Small" IsLabelVisible="True"/>
+				</r:RibbonGroupSizeDefinition>
+			</r:RibbonGroupSizeDefinitionCollection>
+		</r:RibbonGroup.GroupSizeDefinitions>
+
+		<r:RibbonLabel>Title:</r:RibbonLabel>
+		<r:RibbonLabel>Update interval:</r:RibbonLabel>
+
+		<l:TextBoxEx Width="110" Margin="0,3,0,0" Text="{Binding CustomTabVm.Title, UpdateSourceTrigger=PropertyChanged}" />
+		<l:RibbonComboBoxDuration SelectedValueEx="{Binding CustomTabVm.UpdateInterval}" IsEditable="True" Width="110" Margin="0,3,0,0" Style="{StaticResource ErrorTemplate}"/>
+
+		<r:RibbonLabel>Columns:</r:RibbonLabel>
+		<r:RibbonLabel>Rows:</r:RibbonLabel>
+
+		<l:TextBoxEx Width="40" Margin="0,3,0,0" Text="{Binding CustomTabVm.Columns, UpdateSourceTrigger=PropertyChanged}" />
+		<l:TextBoxEx Width="40" Margin="0,3,0,0" Text="{Binding CustomTabVm.Rows, UpdateSourceTrigger=PropertyChanged}" />
+
+		<r:RibbonLabel>Query:</r:RibbonLabel>
+		<r:RibbonLabel Content=" "/>
+		
+		<l:TextBoxEx Width="180" Margin="0,3,0,0" Text="{Binding CustomTabVm.Query, UpdateSourceTrigger=PropertyChanged}" />
+
+
+	</r:RibbonGroup>
+
+
+</r:RibbonTab>

@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Osiris.Tfs.Monitor.BuildMonitorPanelView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+	xmlns:aero="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" 
+	xmlns:ctrl="clr-namespace:TfsMonitor.Controls;assembly=TfsMonitor.Controls" Foreground="Black"
+	Unloaded="UserControl_Unloaded"
+	SizeChanged="UserControl_SizeChanged"
+	x:Name="me"
+    >
+
+	<UserControl.Resources>
+		<l:UserImageScaleConverter x:Key="uis" />
+		<l:BoolToVisibilityConverter x:Key="b2v" />
+	</UserControl.Resources>
+
+	<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=me}">
+
+		<!--
+		<Border Margin="1, 1, 1, 0" BorderThickness="{Binding Scale2d.M3}" CornerRadius="{Binding Scale2d.M3}" BorderBrush="White"  Opacity="0.2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+		-->
+		<Border Margin="1, 1, 1, 0" BorderThickness="{Binding Scale2d.M3}" CornerRadius="{Binding Scale2d.M3}" BorderBrush="{StaticResource BuildPanelOuterBorderBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+				Background="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=BkBrush}">
+
+	
+		<!--
+		<Border Margin="1, 1, 1, 0" BorderThickness="{Binding Scale2d.M3}" CornerRadius="{Binding Scale2d.M3}" BorderBrush="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+		-->
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="{Binding Scale2d.M10}"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+
+				
+				<Grid Margin="{Binding Scale2d.M4}">
+					
+					
+					<Image Source="{Binding Icon}" RenderOptions.BitmapScalingMode="HighQuality"/>
+
+					
+					<Grid.Effect>
+						<DropShadowEffect Opacity="0.5" />
+					</Grid.Effect>
+					
+					
+				</Grid>
+				
+				<Grid Grid.Column="2" Margin="{Binding Scale2d.M4}" >
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+
+					<TextBlock> 
+					   <Run FontWeight="Bold" Foreground="White" FontSize="{Binding Scale2d.M20}" Text="{Binding Name, Mode=OneWay}"></Run> 
+					   <Run FontWeight="Bold" Foreground="White" FontSize="{Binding Scale2d.M14}" Text=" - "></Run> 
+					   <Run FontWeight="Bold" Foreground="White" FontSize="{Binding Scale2d.M14}" Text="{Binding TeamProject, Mode=OneWay}"></Run>
+						<TextBlock.Effect>
+							<DropShadowEffect Opacity="0.75"/>
+						</TextBlock.Effect>
+					</TextBlock>
+
+					<StackPanel Grid.Row="1" Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+						<TextBlock Text="{Binding StartTime}" FontSize="{Binding Scale2d.M14}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+						<TextBlock Text="{Binding TimeToBuild}" FontSize="{Binding Scale2d.M14}" FontWeight="Bold" VerticalAlignment="Bottom"/>
+						<StackPanel.Effect>
+							<DropShadowEffect Opacity="0.5" />
+						</StackPanel.Effect>
+					</StackPanel>
+						
+				</Grid>
+				
+				<Grid Grid.Column="3" Margin="{Binding Scale2d.M4}">
+
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+
+					<Grid Grid.Row="0" HorizontalAlignment="Right" Name="_userImageGrid">
+
+
+						
+						<Image Name="_userImage" SourceUpdated="OnUserImageSourceUpdated" Source="{Binding UserImage}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" StretchDirection="Both"/>
+
+						<ctrl:Loading Visibility="{Binding IsLoading, Converter={StaticResource b2v}, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="{Binding Scale2d.M16}" Height="{Binding Scale2d.M16}"/>
+
+					</Grid>
+
+					<TextBlock Grid.Row="1" Text="{Binding RequestedBy}" FontSize="{Binding Scale2d.M14}" FontWeight="Bold" HorizontalAlignment="Right"/>
+
+					<Grid.Effect>
+						<DropShadowEffect Opacity="0.5" />
+					</Grid.Effect>
+
+				</Grid>
+				
+			</Grid>
+		</Border>
+		
+	</Grid>
+
+</UserControl>

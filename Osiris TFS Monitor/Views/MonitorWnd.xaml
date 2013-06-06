@@ -1,0 +1,10 @@
+﻿<Window x:Class="Osiris.Tfs.Monitor.MonitorWnd"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:Osiris.Tfs.Monitor"
+	Closed="Window_Closed"
+    Title="MonitorWnd" ResizeMode="NoResize" ShowActivated="False" ShowInTaskbar="False" WindowStyle="None"
+	
+	>
+	<local:MonitorView x:Name="_monitor"/>
+</Window>

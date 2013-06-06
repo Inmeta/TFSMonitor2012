@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLDIR">
+            <Component Id="cmpF362441205AFB524DE63003B8D495A9B" Guid="*">
+                <File Id="fil5CF16FEBD4EA33FA0182267E05DD8C93" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Composite.dll" />
+            </Component>
+            <Component Id="cmpC5A2CA8DF269278F3AECC7828534A6E4" Guid="*">
+                <File Id="filF61901B91EF9FEBEF172AE5C7509AC3F" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Composite.pdb" />
+            </Component>
+            <Component Id="cmp1304F907348DC937E3C4276900ABAF9C" Guid="*">
+                <File Id="filA3188624571B2AED8CC51187A3590667" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Composite.Presentation.dll" />
+            </Component>
+            <Component Id="cmp569A4E8845D6C8DF257C823C69F2C7AC" Guid="*">
+                <File Id="filEDCB0DB23A91081DA6C4F622BCFBEFC5" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Composite.Presentation.pdb" />
+            </Component>
+            <Component Id="cmpF74734A304EC2DC869887DA76DB78A8C" Guid="*">
+                <File Id="filD46F7BDA25A9046229CCAFB4B9E80961" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Composite.Presentation.xml" />
+            </Component>
+            <Component Id="cmp50869A9859F5B2932D8F86B73C32785F" Guid="*">
+                <File Id="filC4122B9FAC1C8105B01B052C923CF7D7" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Composite.xml" />
+            </Component>
+            <Component Id="cmpF3F88DA8AB16D05159690375A84E18CC" Guid="*">
+                <File Id="fil6159207A09AAE7625A6A91FC045D30A2" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.ObjectBuilder2.dll" />
+            </Component>
+            <Component Id="cmp37600CDEE06645A953FDE7706BAD72FA" Guid="*">
+                <File Id="filDD39D2586EC618F4241714D8FC193827" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.ObjectBuilder2.pdb" />
+            </Component>
+            <Component Id="cmpA29C1A7B5910FFC929AFBBFEC3EA8129" Guid="*">
+                <File Id="filD651C3A8020C9B880EB84E0C130BF5F3" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.ServiceLocation.dll" />
+            </Component>
+            <Component Id="cmp447A1B845957958309E919CB233C21DB" Guid="*">
+                <File Id="filD79970604D46513C8510D14054B93F98" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.ServiceLocation.xml" />
+            </Component>
+            <Component Id="cmpBADA0C60201E24F3EC586F2349DFA1B5" Guid="*">
+                <File Id="filCE0D517BF07A59BC39D2AADA39DF52BD" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Unity.Configuration.dll" />
+            </Component>
+            <Component Id="cmp5486019F5A1804291A3C1D31E49C24FF" Guid="*">
+                <File Id="fil635974DFE76EF0A8459BFE534039520C" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Unity.Configuration.pdb" />
+            </Component>
+            <Component Id="cmp35F49CAFAC055E116A4C8FCB0F103E39" Guid="*">
+                <File Id="filBD819CBD122DF9C5E579AF151DC00921" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Unity.dll" />
+            </Component>
+            <Component Id="cmpE26688C0E11FBC3A989EFE843DFC859C" Guid="*">
+                <File Id="filE0CCBF8805AD95D7A932E3592C110810" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Unity.pdb" />
+            </Component>
+            <Component Id="cmpCD34BC3725224567235B7B05317E69C2" Guid="*">
+                <File Id="filBAF73C5D098845869D622E3A9C1DDED1" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Unity.StaticFactory.dll" />
+            </Component>
+            <Component Id="cmp82ADA1DF1033B69313A92667323C542D" Guid="*">
+                <File Id="filDAB0AAD5B8760BDE8C274B0F096E6F09" KeyPath="yes" Source="$(var.AppProjectDir)\Microsoft.Practices.Unity.StaticFactory.pdb" />
+            </Component>
+            <Component Id="cmp1874AB219070404EED322213C6A1A49E" Guid="*">
+                <File Id="fil05FF769999D602AD4FA6A489C44ED290" KeyPath="yes" Source="$(var.AppProjectDir)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmpA74770EB2573BF768304091F5781AB50" Guid="*">
+                <File Id="filB1F6038CC6E78195EF1BB290F7026E3A" KeyPath="yes" Source="$(var.AppProjectDir)\Osiris TFS Monitor Common.dll" />
+            </Component>
+            <Component Id="cmpD2E8EBF4B29D63D5AD322E9EB29AEFAF" Guid="*">
+                <File Id="filF5DE63AAAF2121EA5BCE16AF3812D507" KeyPath="yes" Source="$(var.AppProjectDir)\Osiris TFS Monitor Common.pdb" />
+            </Component>
+            <Component Id="cmpDB115C0E1BEBA6D6880F6919D7EC87B5" Guid="*">
+                <File Id="fil2CDE9DE19A7153812A1407D3C24FA132" KeyPath="yes" Source="$(var.AppProjectDir)\Osiris TFS Monitor Models.dll" />
+            </Component>
+            <Component Id="cmp479BDA56EF7AB6F9DF00CE16C9B7F734" Guid="*">
+                <File Id="fil99243FDE165EDB5F2031C06EA2894232" KeyPath="yes" Source="$(var.AppProjectDir)\Osiris TFS Monitor Models.pdb" />
+            </Component>
+            <Component Id="cmp201AF93A6D6DBB0520C74231DDF79B4D" Guid="*">
+                <File Id="fil4DE3B325144D1075B5DAF4E3F968F085" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.exe" />
+            </Component>
+            <Component Id="cmpC950FDABAADE9A4032907523A2A74FCF" Guid="*">
+                <File Id="fil3E2F1135617586E68B358B45CBD78661" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.exe.config" />
+            </Component>
+            <Component Id="cmp220C3A9B5CB10710C2CA2DEC19185CBA" Guid="*">
+                <File Id="filCF390B2E2EDABD42F8B319CF31E237D5" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.pdb" />
+            </Component>
+            <Component Id="cmp3BCECCEE26B88A559331B4BD6AB1E3DF" Guid="*">
+                <File Id="fil22D31DEFE74041B4B2239D214A7C6A41" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.vshost.exe" />
+            </Component>
+            <Component Id="cmp27F49C06E262BA3BEAD25A0B2C5EFABC" Guid="*">
+                <File Id="fil6FD8F47EB385820A1C39AA3406DAA472" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.vshost.exe.config" />
+            </Component>
+            <Component Id="cmpFEBFEF2521FD6FD9FB0ADCE249CA29F5" Guid="*">
+                <File Id="fil9F59ACB550771DBF0D252CD1C76D81FD" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.vshost.exe.manifest" />
+            </Component>
+            <Component Id="cmp5E7E59BF0B1FEA273E1916C278ADFCB0" Guid="*">
+                <File Id="filD406A7AFEE01546B72111EA5DA794F8A" KeyPath="yes" Source="$(var.AppProjectDir)\RibbonControlsLibrary.dll" />
+            </Component>
+            <Component Id="cmp2868E7681E30F87DD2CA084D127CBA01" Guid="*">
+                <File Id="fil7EB2E51C2D4366E30A64EBBD0ED3AB9F" KeyPath="yes" Source="$(var.AppProjectDir)\TfsMonitor.Controls.dll" />
+            </Component>
+            <Component Id="cmpE8DAEB584E4130CF1223350D6934ABF6" Guid="*">
+                <File Id="fil9F74907C5A016F97149D6AA04850936A" KeyPath="yes" Source="$(var.AppProjectDir)\TfsMonitor.Controls.pdb" />
+            </Component>
+            <Component Id="cmp9DBABB4E0B8E8CCE5E54890D829E6FB6" Guid="*">
+                <File Id="fil0F62DE6EDCDB300A9E9D00246C46F184" KeyPath="yes" Source="$(var.AppProjectDir)\Twitterizer.Data.dll" />
+            </Component>
+            <Component Id="cmpF85A4F96E502310D8B10E725799BBFC6" Guid="*">
+                <File Id="fil0640A41D06E2BA112E2547C907A93965" KeyPath="yes" Source="$(var.AppProjectDir)\Twitterizer2.Asynchronous.dll" />
+            </Component>
+            <Component Id="cmpD4422A364CA806A89D778B238C4AFEE8" Guid="*">
+                <File Id="fil159CB1C5B6B1DF5A64FD92FF8DCB91DE" KeyPath="yes" Source="$(var.AppProjectDir)\Twitterizer2.dll" />
+            </Component>
+            <Component Id="cmpB01362BEDCA57C6003E7713FC07DD851" Guid="*">
+                <File Id="fil48FD562B776B16331F41F0AE8EB396F8" KeyPath="yes" Source="$(var.AppProjectDir)\Twitterizer2.Streaming.dll" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="Wix.Generated_Project">
+            <ComponentRef Id="cmpF362441205AFB524DE63003B8D495A9B" />
+            <ComponentRef Id="cmpC5A2CA8DF269278F3AECC7828534A6E4" />
+            <ComponentRef Id="cmp1304F907348DC937E3C4276900ABAF9C" />
+            <ComponentRef Id="cmp569A4E8845D6C8DF257C823C69F2C7AC" />
+            <ComponentRef Id="cmpF74734A304EC2DC869887DA76DB78A8C" />
+            <ComponentRef Id="cmp50869A9859F5B2932D8F86B73C32785F" />
+            <ComponentRef Id="cmpF3F88DA8AB16D05159690375A84E18CC" />
+            <ComponentRef Id="cmp37600CDEE06645A953FDE7706BAD72FA" />
+            <ComponentRef Id="cmpA29C1A7B5910FFC929AFBBFEC3EA8129" />
+            <ComponentRef Id="cmp447A1B845957958309E919CB233C21DB" />
+            <ComponentRef Id="cmpBADA0C60201E24F3EC586F2349DFA1B5" />
+            <ComponentRef Id="cmp5486019F5A1804291A3C1D31E49C24FF" />
+            <ComponentRef Id="cmp35F49CAFAC055E116A4C8FCB0F103E39" />
+            <ComponentRef Id="cmpE26688C0E11FBC3A989EFE843DFC859C" />
+            <ComponentRef Id="cmpCD34BC3725224567235B7B05317E69C2" />
+            <ComponentRef Id="cmp82ADA1DF1033B69313A92667323C542D" />
+            <ComponentRef Id="cmp1874AB219070404EED322213C6A1A49E" />
+            <ComponentRef Id="cmpA74770EB2573BF768304091F5781AB50" />
+            <ComponentRef Id="cmpD2E8EBF4B29D63D5AD322E9EB29AEFAF" />
+            <ComponentRef Id="cmpDB115C0E1BEBA6D6880F6919D7EC87B5" />
+            <ComponentRef Id="cmp479BDA56EF7AB6F9DF00CE16C9B7F734" />
+            <ComponentRef Id="cmp201AF93A6D6DBB0520C74231DDF79B4D" />
+            <ComponentRef Id="cmpC950FDABAADE9A4032907523A2A74FCF" />
+            <ComponentRef Id="cmp220C3A9B5CB10710C2CA2DEC19185CBA" />
+            <ComponentRef Id="cmp3BCECCEE26B88A559331B4BD6AB1E3DF" />
+            <ComponentRef Id="cmp27F49C06E262BA3BEAD25A0B2C5EFABC" />
+            <ComponentRef Id="cmpFEBFEF2521FD6FD9FB0ADCE249CA29F5" />
+            <ComponentRef Id="cmp5E7E59BF0B1FEA273E1916C278ADFCB0" />
+            <ComponentRef Id="cmp2868E7681E30F87DD2CA084D127CBA01" />
+            <ComponentRef Id="cmpE8DAEB584E4130CF1223350D6934ABF6" />
+            <ComponentRef Id="cmp9DBABB4E0B8E8CCE5E54890D829E6FB6" />
+            <ComponentRef Id="cmpF85A4F96E502310D8B10E725799BBFC6" />
+            <ComponentRef Id="cmpD4422A364CA806A89D778B238C4AFEE8" />
+            <ComponentRef Id="cmpB01362BEDCA57C6003E7713FC07DD851" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

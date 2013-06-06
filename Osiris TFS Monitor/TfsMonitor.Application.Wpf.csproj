@@ -1,0 +1,905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A4FE15D5-F164-4BA7-8F20-F333852D6413}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Osiris.Tfs.Monitor</RootNamespace>
+    <AssemblyName>OsirisTFSMonitor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ApplicationIcon>Resources\Icons\AppIcon32x32.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>..\..\..\..\..\Inmeta.Extended.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Osiris.Tfs.Monitor.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Composite, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\CAL\Microsoft.Practices.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite.Presentation, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\CAL\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\CAL\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\CAL\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\CAL\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\CAL\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.StaticFactory, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\CAL\Microsoft.Practices.Unity.StaticFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.TeamFoundation.Build.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.TeamFoundation.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationFramework.Aero">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework.Classic">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework.Luna">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="RibbonControlsLibrary, Version=3.5.31016.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\RibbonControlsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Twitterizer.Data">
+      <HintPath>..\Libs\Twitterizer\Twitterizer.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitterizer2">
+      <HintPath>..\Libs\Twitterizer\Twitterizer2.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitterizer2.Asynchronous">
+      <HintPath>..\Libs\Twitterizer\Twitterizer2.Asynchronous.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitterizer2.Streaming">
+      <HintPath>..\Libs\Twitterizer\Twitterizer2.Streaming.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\ComboBoxDuration.cs" />
+    <Compile Include="Queries\TwitterQuery.cs" />
+    <Compile Include="Queries\IterationWiQueryArg.cs" />
+    <Compile Include="ViewModels\ApplicationInfoVm.cs" />
+    <Compile Include="ViewModels\FullscreenSlideVm.cs" />
+    <Compile Include="ViewModels\SlideElements\Twitter\TwitterMenuVm.cs" />
+    <Compile Include="ViewModels\SlideElements\Twitter\TwitterVm.cs" />
+    <Compile Include="ViewModels\SlideElements\SlideElementVm.cs" />
+    <Compile Include="ViewModels\SlidesRibbonGroupVm.cs" />
+    <Compile Include="ViewModels\SlideElements\BurndownChart\IterationWiNode.cs" />
+    <Compile Include="ViewModels\TfsWorkItemFilter\TfsAssignedToVm.cs" />
+    <Compile Include="ViewModels\TfsWorkItemFilter\TfsWiStateVm.cs" />
+    <Compile Include="Views\ApplicationInfoView.xaml.cs">
+      <DependentUpon>ApplicationInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FullscreenSlideView.xaml.cs">
+      <DependentUpon>FullscreenSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\Custom\TwitterMenuView.xaml.cs">
+      <DependentUpon>TwitterMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\SlideshowGroupView.xaml.cs">
+      <DependentUpon>SlideshowGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\TweetView.xaml.cs">
+      <DependentUpon>TweetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\TwitterView.xaml.cs">
+      <DependentUpon>TwitterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\OsirisExceptionClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Page Include="Controls\ComboBoxCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ComboBoxTree.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DatePickerEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Common.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ComboBoxToggleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ComboBoxEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\DatePickerEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ListViewItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ApplicationOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ApplicationInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FullscreenSlideView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\ApplicationRibbonMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\ClipboardGroupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\Custom\TwitterMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\SlideshowGroupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\DesignTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\HomeTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\Custom\BuildMonitorMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\BuildMonitorPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\Custom\TaskManagerMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\TweetView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\TwitterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\TaskManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\WorkItemFilterTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\FiltersGroupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TfsIntegrationOptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideshowOptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\Custom\WebPageMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\SlidesGroupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\BuildMonitorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\WebPageDesignView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideThumbnailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\Custom\BurndownChartMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElementEditContainerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\BurndownChartView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\BurndownChartDesignView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElements\WebPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideElementContainerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SelectSlideTemplateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DocumentExplorerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Ribbon\ApplicationRibbonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TfsOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Statusbar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SlideshowView_old.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LineChart\LineChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ApplicationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ComboBoxCheckBox.xaml.cs">
+      <DependentUpon>ComboBoxCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DatePickerEx.xaml.cs">
+      <DependentUpon>DatePickerEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RibbonControlEx.cs" />
+    <Compile Include="Controls\ComboBoxTree.xaml.cs">
+      <DependentUpon>ComboBoxTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ComboBoxAutoComplete.cs" />
+    <Compile Include="Controls\DialogWindow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\LineChart\ScaleTick.cs" />
+    <Compile Include="Controls\MouseDrag.cs" />
+    <Compile Include="Controls\LineChart\LineChartOptions.cs" />
+    <Compile Include="Controls\LineChart\LineChartPoint.cs" />
+    <Compile Include="Controls\LineChart\LineChartLine.cs" />
+    <Compile Include="Controls\LineChart\LineChartLegend.cs" />
+    <Compile Include="Controls\RibbonComboBoxDuration.cs" />
+    <Compile Include="Controls\RibbonComboBoxEx.cs" />
+    <Compile Include="Controls\RibbonCommandEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\Win32Window.cs" />
+    <Compile Include="Queries\BuildQuery.cs" />
+    <Compile Include="Queries\BurndownQuery.cs" />
+    <Compile Include="Queries\IterationWiQuery.cs" />
+    <Compile Include="Queries\WorkItemFieldsQuery.cs" />
+    <Compile Include="Queries\WorkItemFilterQuery.cs" />
+    <Compile Include="Queries\TeamProjectQuery.cs" />
+    <Compile Include="Queries\QueryBase.cs" />
+    <Compile Include="Queries\QueryManager.cs" />
+    <Compile Include="ValidationRules\ValidationRuleBase.cs" />
+    <Compile Include="ValidationRules\DurationValidationRule.cs" />
+    <Compile Include="ValidationRules\RequiredFieldValidationRule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="ValueConverters\BoolToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\InvertBoolConverter.cs" />
+    <Compile Include="ValueConverters\StringFormatConverter.cs" />
+    <Compile Include="ViewModels\ApplicationOptions\ApplicationOptionsVm.cs" />
+    <Compile Include="ViewModels\ApplicationRibbonVm.cs" />
+    <Compile Include="ViewModels\ApplicationVm.cs" />
+    <Compile Include="ViewModels\SlideElements\BuildMonitor\BuildMonitorMenuVm.cs" />
+    <Compile Include="ViewModels\SlideElements\TaskManager\TaskManagerMenuVm.cs" />
+    <Compile Include="ViewModels\SlideElements\TaskManager\TaskManagerVm.cs" />
+    <Compile Include="ViewModels\SlideTemplates\BurndownChartTemplateVm.cs" />
+    <Compile Include="ViewModels\SlideTemplates\BuildMonitorTemplateVm.cs" />
+    <Compile Include="ViewModels\SlideTemplates\TaskManagerTemplateVm.cs" />
+    <Compile Include="ViewModels\TfsWorkItemFilter\TfsWiTypeVm.cs" />
+    <Compile Include="ViewModels\TfsWorkItemFilter\TfsTeamProjectVm.cs" />
+    <Compile Include="ViewModels\TfsWorkItemFilter\TfsWorkItemFilterVm.cs" />
+    <Compile Include="ViewModels\TfsWorkItemFilter\TfsIterationVm.cs" />
+    <Compile Include="ViewModels\SlideTemplates\BlankSlideTemplateVm.cs" />
+    <Compile Include="ViewModels\StatusBarVm.cs" />
+    <Compile Include="ViewModels\ApplicationOptions\TfsIntegrationOptionsVm.cs" />
+    <Compile Include="ViewModels\ApplicationOptions\SlideshowOptionsVm.cs" />
+    <Compile Include="ViewModels\SlideElements\WebPage\WebPageMenuVm.cs" />
+    <Compile Include="ViewModels\SlideshowRibbonGroupVm.cs" />
+    <Compile Include="ViewModels\SlideElements\BuildMonitor\BuildMonitorVm.cs" />
+    <Compile Include="ViewModels\SlideElements\WebPage\WebPageDesignVm.cs" />
+    <Compile Include="ViewModels\SlideThumbnailVm.cs" />
+    <Compile Include="ViewModels\SlideElements\BurndownChart\BurndownChartDesignVm.cs" />
+    <Compile Include="ViewModels\SlideElements\BurndownChart\BurndownChartMenuVm.cs" />
+    <Compile Include="ViewModels\SlideElements\SlideElementType.cs" />
+    <Compile Include="ViewModels\ContentVm.cs" />
+    <Compile Include="ViewModels\SelectSlideTemplateVm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\SlideElements\BurndownChart\BurndownChartVm.cs" />
+    <Compile Include="ViewModels\SlideTemplates\SlideTemplateVm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\SlideVm.cs" />
+    <Compile Include="ViewModels\SlideElementContainerVm.cs" />
+    <Compile Include="ViewModels\SlideElements\WebPage\WebPageVm.cs" />
+    <Compile Include="ViewModels\TfsWorkItemFilter\TfsAreaVm.cs" />
+    <Compile Include="ViewModels\ViewModelEvents.cs" />
+    <Compile Include="ViewModels\DocumentExplorerVm.cs" />
+    <Compile Include="ViewModels\IApplicationView.cs" />
+    <Compile Include="ViewModels\OptionVm.cs" />
+    <Compile Include="ViewModels\ApplicationOptions\TfsOptionsVm.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\ConsoleVm.cs" />
+    <Compile Include="Views\ApplicationOptionsView.xaml.cs">
+      <DependentUpon>ApplicationOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\ApplicationRibbonView.xaml.cs">
+      <DependentUpon>ApplicationRibbonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Scale2d.cs" />
+    <Compile Include="Views\Ribbon\ApplicationRibbonMenuView.xaml.cs">
+      <DependentUpon>ApplicationRibbonMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\ClipboardGroupView.xaml.cs">
+      <DependentUpon>ClipboardGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\DesignTabView.xaml.cs">
+      <DependentUpon>DesignTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\HomeTabView.xaml.cs">
+      <DependentUpon>HomeTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\Custom\BuildMonitorMenuView.xaml.cs">
+      <DependentUpon>BuildMonitorMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\BuildMonitorPanelView.xaml.cs">
+      <DependentUpon>BuildMonitorPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\Custom\TaskManagerMenuView.xaml.cs">
+      <DependentUpon>TaskManagerMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\TaskManagerView.xaml.cs">
+      <DependentUpon>TaskManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\WorkItemFilterTabView.xaml.cs">
+      <DependentUpon>WorkItemFilterTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\FiltersGroupView.xaml.cs">
+      <DependentUpon>FiltersGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TfsIntegrationOptionsView.xaml.cs">
+      <DependentUpon>TfsIntegrationOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideshowOptionsView.xaml.cs">
+      <DependentUpon>SlideshowOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\Custom\WebPageMenuView.xaml.cs">
+      <DependentUpon>WebPageMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\SlidesGroupView.xaml.cs">
+      <DependentUpon>SlidesGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\BuildMonitorView.xaml.cs">
+      <DependentUpon>BuildMonitorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\WebPageDesignView.xaml.cs">
+      <DependentUpon>WebPageDesignView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideThumbnailView.xaml.cs">
+      <DependentUpon>SlideThumbnailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ribbon\Custom\BurndownChartMenuView.xaml.cs">
+      <DependentUpon>BurndownChartMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElementEditContainerView.xaml.cs">
+      <DependentUpon>SlideElementEditContainerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\BurndownChartView.xaml.cs">
+      <DependentUpon>BurndownChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\BurndownChartDesignView.xaml.cs">
+      <DependentUpon>BurndownChartDesignView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElements\WebPageView.xaml.cs">
+      <DependentUpon>WebPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideView.xaml.cs">
+      <DependentUpon>SlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SlideElementContainerView.xaml.cs">
+      <DependentUpon>SlideElementContainerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectSlideTemplateView.xaml.cs">
+      <DependentUpon>SelectSlideTemplateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DocumentExplorerView.xaml.cs">
+      <DependentUpon>DocumentExplorerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentView.xaml.cs">
+      <DependentUpon>ContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TfsOptionsView.xaml.cs">
+      <DependentUpon>TfsOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statusbar.xaml.cs">
+      <DependentUpon>Statusbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SlideshowVm.cs" />
+    <Compile Include="ViewModels\NameDecorator.cs" />
+    <Compile Include="Views\AppCommands.cs" />
+    <Compile Include="Views\FrameworkElementExtension.cs" />
+    <Compile Include="Views\SlideshowView.cs" />
+    <Compile Include="Controls\PasswordBoxHelper.cs" />
+    <Compile Include="Views\SlideshowView_old.xaml.cs">
+      <DependentUpon>SlideshowView_old.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScreensaverView.cs" />
+    <Compile Include="Controls\LineChart\LineChart.xaml.cs">
+      <DependentUpon>LineChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplicationView.xaml.cs">
+      <DependentUpon>ApplicationView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ViewModels\VviewModels.cd" />
+    <AppDesigner Include="Properties\" />
+    <None Include="Web References\OsirisExceptionClient\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\OsirisExceptionClient\Service.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Osiris TFS Monitor Common\TfsMonitor.Helpers.csproj">
+      <Project>{5C6FCE98-84B6-473A-A30C-E373353B338B}</Project>
+      <Name>TfsMonitor.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Osiris TFS Monitor Controls\TfsMonitor.Application.Controls.csproj">
+      <Project>{31A23B00-0248-4FE7-A361-ACBADC4F5ED7}</Project>
+      <Name>TfsMonitor.Application.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Osiris TFS Monitor Models\TfsMonitor.Domain.csproj">
+      <Project>{B41D0763-AE39-452E-9C6F-0298B9ED9DA3}</Project>
+      <Name>TfsMonitor.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PogressIcon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dialog_bg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\fullscreen.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Osiris32x32.png" />
+    <Resource Include="Resources\Icons\Osiris16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FileOpen16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FileOpen32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FileSave16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FileSave32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Paste32x32.png" />
+    <Resource Include="Resources\Icons\Copy16x16.png" />
+    <Resource Include="Resources\Icons\Cut16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SlideShowPlay32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FormatPainter16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Help23x23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Options32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Close16x16.png" />
+    <Resource Include="Resources\Icons\Info16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\New32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\NewSlide32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Delete16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TfsIcon32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\WebPage32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSHTML">
+      <Guid>{3050F1C5-98B5-11CF-BB82-00AA00BDCE0B}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\DesignMode32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\NormalMode32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ChangeDate32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SlidePlay32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\WebPage48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PowerpointInspired.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Osiris32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\AppIcon32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\BurndownChart32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\BuildMonitor32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\BlankSlide32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\NewSlide2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\RunQuery32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\WeekEnds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\WeekEnds16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Buildstatus\Failed.png" />
+    <Resource Include="Resources\Icons\Buildstatus\InProgress.png" />
+    <Resource Include="Resources\Icons\Buildstatus\NotStarted.png" />
+    <Resource Include="Resources\Icons\Buildstatus\Partial.png" />
+    <Resource Include="Resources\Icons\Buildstatus\Queued.png" />
+    <Resource Include="Resources\Icons\Buildstatus\Succeeded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SyncTfs32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TaskManager32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Info24x23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Refresh32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Refresh24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://exceptions.osiris.no/Service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\OsirisExceptionClient\</RelPath>
+      <UpdateFromURL>http://exceptions.osiris.no/Service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OsirisTFSMonitor_OsirisExceptionClient_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\OsirisExceptionClient\Service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\user.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Twitter32x32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

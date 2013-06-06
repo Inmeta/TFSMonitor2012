@@ -1,0 +1,141 @@
+﻿<ResourceDictionary  x:Class="CommonDictionary"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor" 
+	>
+
+	<SolidColorBrush x:Key="BuildPanelOuterBorderBrush" Opacity="0.2" Color="White" />
+
+	<l:StringFormatConverter x:Key="StringFormat" />
+
+	<l:BoolToVisibilityConverter x:Key="b2v" />
+
+	<!-- Failed background brush -->
+	<LinearGradientBrush x:Key="FailedBkBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#800" />
+		<GradientStop Offset="0.5" Color="#F00" />
+		<GradientStop Offset="0.7" Color="#F66" />
+		<GradientStop Offset="1" Color="#FCC" />
+	</LinearGradientBrush>
+
+	<!-- Succeeded background brush -->
+	<LinearGradientBrush x:Key="SucceededBkBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#080" />
+		<GradientStop Offset="0.5" Color="#0F0" />
+		<GradientStop Offset="0.7" Color="#6F6" />
+		<GradientStop Offset="1" Color="#cFc" />
+	</LinearGradientBrush>
+
+	<!-- In progress background brush -->
+	<LinearGradientBrush x:Key="InProgressBkBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#444" />
+		<GradientStop Offset="0.5" Color="#888" />
+		<GradientStop Offset="0.7" Color="#ccc" />
+		<GradientStop Offset="1" Color="#ddd" />
+	</LinearGradientBrush>
+
+	<!-- Partially succeeded background brush -->
+	<LinearGradientBrush x:Key="PartiallySucceededBkBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#880" />
+		<GradientStop Offset="0.5" Color="#ff0" />
+		<GradientStop Offset="0.7" Color="#ff6" />
+		<GradientStop Offset="1" Color="#ffc" />
+	</LinearGradientBrush>
+
+
+	<!-- Small button -->
+	<Style x:Key="SmallButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Height" Value="21"/>
+		<Setter Property="Width" Value="80"/>
+		<Setter Property="FontWeight" Value="Normal"/>
+		<Setter Property="FontSize" Value="11"/>
+	</Style>
+
+	<!-- Default button -->
+	<Style TargetType="{x:Type Button}">
+		<Setter Property="Height" Value="23"/>
+		<Setter Property="Width" Value="80"/>
+	</Style>
+
+	<!-- Default Textbox -->
+	<Style TargetType="{x:Type TextBox}">
+		<Setter Property="Height" Value="21"/>
+		<Setter Property="FontWeight" Value="Normal"/>
+	</Style>
+
+	<!-- Default PasswordBox -->
+	<Style TargetType="{x:Type PasswordBox}">
+		<Setter Property="Height" Value="21"/>
+		<Setter Property="FontWeight" Value="Normal"/>
+	</Style>
+
+	<!-- Default ComboBox -->
+	<Style TargetType="{x:Type ComboBox}">
+		<Setter Property="Height" Value="21"/>
+		<Setter Property="FontWeight" Value="Normal"/>
+	</Style>
+
+	<!-- Default GroupBox -->
+	<Style TargetType="{x:Type GroupBox}">
+		<Setter Property="FontWeight" Value="Normal"/>
+	</Style>
+
+	<!-- Tab item -->
+	<Style TargetType="{x:Type TabItem}">
+		<Style.Triggers>
+			<Trigger Property="IsSelected" Value="true">
+				<Setter Property="FontWeight" Value="SemiBold"/>
+			</Trigger>
+			<Trigger Property="IsSelected" Value="false">
+				<Setter Property="FontWeight" Value="Normal"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	
+	<!-- Default Label -->
+	<Style TargetType="{x:Type Label}">
+		<Setter Property="FontWeight" Value="Normal"/>
+	</Style>
+
+	<LinearGradientBrush x:Key="GradientBackgroundBrush">
+		<GradientStop Color="#FF6060c0" Offset="4"/>
+		<GradientStop Color="#FFFFFFFF" Offset="0"/>
+	</LinearGradientBrush>
+
+	<!-- Gridview column header: Left alignment -->
+	<Style x:Key="LeftHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+	</Style>
+
+	<LinearGradientBrush x:Key="ShellBackgroundBrush">
+		<GradientStop Color="#9BBBE3" Offset="4"/>
+		<GradientStop Color="#6591CD" Offset="0"/>
+	</LinearGradientBrush>
+
+	<!-- Red border on validation error -->
+	<Style TargetType="{x:Type Control}" x:Key="ErrorTemplate">
+		<Setter Property="Validation.ErrorTemplate">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border BorderBrush="Red" BorderThickness="1" Margin="-1">
+						<AdornedElementPlaceholder Name="placeholder"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger Property="Validation.HasError" Value="true">
+				<Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}"/>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<ResourceDictionary.MergedDictionaries>
+		<!--
+		<ResourceDictionary Source="pack://application:,,,/Resources/ComboBoxToggleButton.xaml"/>
+		-->
+		<ResourceDictionary Source="pack://application:,,,/Resources/ComboBoxEx.xaml"/>
+	</ResourceDictionary.MergedDictionaries>
+
+	
+</ResourceDictionary>

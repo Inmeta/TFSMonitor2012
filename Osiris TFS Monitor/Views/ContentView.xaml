@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Osiris.Tfs.Monitor.ContentView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:l="clr-namespace:Osiris.Tfs.Monitor"
+	xmlns:mwt="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Classic" 
+	Height="Auto" 
+	Width="Auto" 
+	Padding="4,3,3,3"
+	Loaded="UserControl_Loaded"
+	SizeChanged="UserControl_SizeChanged"
+	>
+	
+	<UserControl.Resources>
+		<DataTemplate DataType="{x:Type l:SlideVm}">
+			<l:SlideView/>
+		</DataTemplate>
+	</UserControl.Resources>
+	
+	<Grid>
+
+		<Grid.Resources>
+
+			<LinearGradientBrush x:Key="BkTab" StartPoint="0,0" EndPoint="1,1">
+				<GradientStop Color="#8FB0DB" Offset="0" />
+				<GradientStop Color="#6591CD" Offset="1" />
+			</LinearGradientBrush>
+		</Grid.Resources>
+
+		<mwt:ClassicBorderDecorator BorderStyle="Sunken" BorderThickness="1" >
+			<Rectangle Fill="{StaticResource BkTab}"/>
+		</mwt:ClassicBorderDecorator>
+
+
+		
+		<DockPanel Width="0" Height="0" Name="doc" Margin="1,1,2,2"/>
+		
+		<!--
+		<ContentPresenter Name="content" Margin="1,1,2,2" Content="{Binding SlideMode}"/>
+		-->
+		
+	</Grid>
+</UserControl>

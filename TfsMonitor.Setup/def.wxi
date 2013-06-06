@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define Version= "1.0.0.0"?>
+  <?define DefaultRegistryKey="SOFTWARE\Inmeta\TeamFeedTray\Install"?>
+  <?define UpgradeCode="9BDF0A71-F0FF-424B-9DAD-6610FFC99B99"?>
+  
+</Include>

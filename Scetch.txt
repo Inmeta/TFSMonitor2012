@@ -1,0 +1,201 @@
+
+[ Home ]
+|  ____				|  ____	   ____	   ____										|
+| |Ikon|	Paste	| |Ikon|  |Ikon|  |Ikon|	 Duration:	    [ 10 sec   |v]	|
+| |____|	Copy	| |____|  |____|  |____|	 Refresh every: [ 1 second |v]	|
+| Paste		Delete	| New v	  Refresh Start 									|
+|					|                 Slideshow									|
+|-------------------|-----------------------------------------------------------|
+| Clipboard         | Slides													|
+ -------------------------------------------------------------------------------
+
+[ Work Item Filter ]
+|  ____	 |														  | 														  
+| |Ikon| | Team Project: [           |v]  Assigned To: [     |v]  |
+| |____| | Area:         [           |v]  WI Types:    [     |v]  |
+|  Sync  | Iteration:    [           |v]  WI States:   [     |v]  |
+|  TFS   |            											  |
+|-----------------------------------------------------------------|
+| Sync	 | Filters         								  	 	  |
+ -----------------------------------------------------------------
+
+[ Burndown Chart ]
+|  ____	 |									|									|									|
+| |Ikon| | Chart Type:    [           |v]	| Team Project:    [<None>     |v]  | Iteration WI:  [<None>     |v]  	| 
+| |____| | Estimate:      [Historical |v]	| Estimate field:  [           |v] 	| Starts:        [             ]	|
+|  Sync  | Exclude WeekEnds					| Remaining field: [           |v]	| Finishes:      [             ]	|                              
+|  TFS   |									|									|									|
+|-------------------------------------------|-----------------------------------------------------------------------|
+| Sync   | Chart & Options                  | Team Project & Template			| Iteration							|
+ ------------------- -----------------------------------------------------------------------------------------------
+
+Chart-type:	Remaining time, Remaining workitems
+Estimate: 	None, Historical, Current
+
+ 
+
+
+
+[ Task Manager ]
+|  ____	 |   ____	 |							    |											|
+| |Ikon| |  |Ikon|   | Sort Order: [Ascending	|v]	| Estimate Field:	[Original Estimate |v]  |
+| |____| |  |__ v|   | Sort by:	   [Priority    |v]	| Remaining Fields: [Remaining Work	   |v]	|
+|  Sync  |    New    |                       		| Priority Field:	[Priority		   |v]	|
+|  TFS   | Work Item |								|											|
+|-----------------------------------------------------------------------------------------------|
+|  Sync  | Items     | Sorting                      | Template									|
+ --------- ------------------- -----------------------------------------------------------------
+ 
+| Slides			| Uspesified Query															|
+|-------------------|----------------------------------------------------------------------------
+|  _______________  |
+| |				  |	|
+| |               | |
+
+
+
+Denne kommer i "Work Item Filter" Fanen:
+  
+Include Relationship:	[ <None>	      |v]
+						| [x] Parent		|
+						| [ ] Affected		|
+						| [ ] Related		|
+
+
+Expand All
+Collapse All
+
+
+
+
+
+
+Context-menu for List-column:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+--------------------------
+Columns 		->
+Split 			->
+--------------------------
+Select all
+--------------------------
+Remove
+--------------------------
+
+
+Context-menu for List
+^^^^^^^^^^^^^^^^^^^^^
+--------------------------
+New WorkItem 		->
+New Linked WorkItem 	->
+--------------------------
+Select all
+--------------------------
+
+
+
+
+Context-menu for WorkItem
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+------------------
+Area		->
+Iteration	->
+Priority 	->
+Assigned To 	->
+State		->
+------------------
+*Open*
+------------------
+
+
+
+ -----------------------
+| > My User Story	|
+| 1	  T	    5/8	|
+ -----------------------
+          | |
+          v |
+ -----------------------
+|   My Related TestCase	|
+ -----------------------
+            |
+            v
+ -----------------------
+|   My Related WI	|
+ -----------------------
+
+
+
+
+
+
+
+
+[ Task Manager ]
+|   ____    ____    ____   |							    |											|
+|  |Ikon|  |Ikon|  |Ikon|  | Sort Order: [Ascending		|v]	| Estimate Field:	[Original Estimate |v]  | 
+|  |____|  |__ _|  |__ v|  | Sort by:	 [Priority		|v]	| Remaining Fields: [Remaining Work	   |v]	| 
+|   Run     New     New    |                       			| Priority Field:	[Priority		   |v]	|
+|  Query   Query  WorkItem |								|											|
+|-------------------------------------------------------------------------------------------------------|
+|  Queries & Items         | Sorting                        | Template									|
+|--------------------------------------------------------------------------------------------------------
+| Slides			|																					|
+|-------------------| (i) Create new query from the ribbon menu. Select Team Project and/or filters		|
+|  _______________  |     from the Work Item Filter menu.												|
+| |				  |	|																					|
+| |               | |	  When finished setting up queries, click "Run Query" from the ribbon menu or	|
+| |				  | |	  press F5.																		|
+
+
+
+Step 1) Lag nytt query 
+
+  [ Untitled               										x ]
+  |																  |
+  | (i) Select Team project and/or filters						  |
+  |     from the Work Item Filter ribbon menu					  |
+
+Step 2) Rename "Untitled" til "Backlog"
+
+  [ Backlog		              									x ]
+
+
+Step 4) Velg "Backlog" slik at den er markert og velg teamproject/filters
+
+  [ Backlog                										x ]
+  [ US 1                     									 ]|
+  [ US 2                     									 ]|
+
+
+Step 5) Lag nytt query
+
+  [ Backlog          x ][Untitled 								x ]
+  |[ US 1              ]|									      |
+  |[ US 2              ]| (i) Select Team Project and/or ...	  |
+
+
+Step 6) Rename "Untitled" til "U2"
+
+  [ Backlog          x ][ U2 									x ]
+  |[ US 1              ]|										  |
+  |[ US 2              ]| (i) Select Team Project and/or ...	  |
+
+
+Step 7) Velg "U2" slik at den er markert og velg teamproject/filters
+
+  [ Backlog          x ][ U2 									x ]
+  |[ US 1              ]|[ Task 1								 ]|
+  |[ US 2              ]|[ Task 2								 ]|
+
+
+Step 7) Høyreklikk på U2" og velg "Martin" og " Jakob" fra "Split -> AssignedTo" 
+
+  [ Backlog          x ][ U2 									x ]
+  |[ US 1              ]|[ Martin			x ][ Jakob			x ]
+  |[ US 2              ]|[ Task 1			  ]|[ Task 2		 ]|
+
+
+
+
