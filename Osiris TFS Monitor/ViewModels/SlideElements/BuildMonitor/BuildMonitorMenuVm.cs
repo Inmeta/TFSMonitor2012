@@ -1,322 +1,322 @@
 ﻿namespace Osiris.Tfs.Monitor
 {
-	#region Using
+    #region Using
 
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Diagnostics;
-	using System.Windows.Input;
-	using Osiris.Tfs.Monitor.Models;
-	using Osiris.Tfs.Report;
-	using Microsoft.TeamFoundation.VersionControl.Client;
-	using System.Net;
-	using Microsoft.TeamFoundation.Client;
-	using Microsoft.TeamFoundation.WorkItemTracking.Client;
-	using System.Windows.Threading;
-	using System.ComponentModel;
-	using System.Collections.ObjectModel;
-	using System.Windows;
-	using System.Collections.Specialized;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Diagnostics;
+    using System.Windows.Input;
+    using Osiris.Tfs.Monitor.Models;
+    using Osiris.Tfs.Report;
+    using Microsoft.TeamFoundation.VersionControl.Client;
+    using System.Net;
+    using Microsoft.TeamFoundation.Client;
+    using Microsoft.TeamFoundation.WorkItemTracking.Client;
+    using System.Windows.Threading;
+    using System.ComponentModel;
+    using System.Collections.ObjectModel;
+    using System.Windows;
+    using System.Collections.Specialized;
 
-	#endregion // Using
+    #endregion // Using
 
-	public interface IBuildMonitorMenuView
-	{
-         
-	}
+    public interface IBuildMonitorMenuView
+    {
 
-	public class BuildMonitorMenuVm : ViewModelBase
-	{
-		#region Fields
+    }
 
-		IBuildMonitorMenuView _view; 
-		bool _disposed = false;
-		BuildMonitor _model = null;
-		bool _isTeamProjectsEnabled = false;
+    public class BuildMonitorMenuVm : ViewModelBase
+    {
+        #region Fields
 
-		#endregion // Fields
+        IBuildMonitorMenuView _view;
+        bool _disposed = false;
+        BuildMonitor _model = null;
+        bool _isTeamProjectsEnabled = false;
 
-		#region Properties
+        #endregion // Fields
 
-		public IBuildMonitorMenuView View
-		{
-			get
-			{
-				return _view;
-			}
-			set
-			{
-				_view = value;
-				if (_view == null)
-				{
-					Dispose();
-				}
-				else
-				{
-					Init();
-				}
-			}
-		}
+        #region Properties
 
-		public int? UpdateInterval
-		{
-			get
-			{
-				return _model.UpdateInterval;
-			}
-			set
-			{
-				if (value.HasValue)
-				{
-					// Error or 0?
-					if (value.Value > 0)
-					{
-						_model.UpdateInterval = value.Value;
-						QueryManager.Instance.UpdatePollingInterval<BuildQuery>(q => q.SourceId == _model.Id, value.Value);
-					}
-				}
-			}
-		}
+        public IBuildMonitorMenuView View
+        {
+            get
+            {
+                return _view;
+            }
+            set
+            {
+                _view = value;
+                if (_view == null)
+                {
+                    Dispose();
+                }
+                else
+                {
+                    Init();
+                }
+            }
+        }
 
-		public bool IsTeamProjectsEnabled
-		{
-			get { return _isTeamProjectsEnabled; }
-			set
-			{
-				_isTeamProjectsEnabled = value;
-				RaisePropertyChanged(() => IsTeamProjectsEnabled);
-			}
-		}
+        public int? UpdateInterval
+        {
+            get
+            {
+                return _model.UpdateInterval;
+            }
+            set
+            {
+                if (value.HasValue)
+                {
+                    // Error or 0?
+                    if (value.Value > 0)
+                    {
+                        _model.UpdateInterval = value.Value;
+                        QueryManager.Instance.UpdatePollingInterval<BuildQuery>(q => q.SourceId == _model.Id, value.Value);
+                    }
+                }
+            }
+        }
 
-		public string Title
-		{
-			get
-			{
-				return _model.Title;
-			}
-			set
-			{
-				_model.Title = value;
-				UpdateModels(false);
-			}
-		}
+        public bool IsTeamProjectsEnabled
+        {
+            get { return _isTeamProjectsEnabled; }
+            set
+            {
+                _isTeamProjectsEnabled = value;
+                RaisePropertyChanged(() => IsTeamProjectsEnabled);
+            }
+        }
 
-		public int Columns
-		{
-			get
-			{
-				return _model.Columns;
-			}
-			set
-			{
-				if (value > 0 && value < 10)
-				{
-					_model.Columns = value;
-					UpdateModels(true);
-				}
-			}
-		}
+        public string Title
+        {
+            get
+            {
+                return _model.Title;
+            }
+            set
+            {
+                _model.Title = value;
+                UpdateModels(false);
+            }
+        }
 
-		public int Rows
-		{
-			get
-			{
-				return _model.Rows;
-			}
-			set
-			{
-				if (value > 0 && value < 100)
-				{
-					_model.Rows = value;
-					UpdateModels(true);
-				}
-			}
-		}
+        public int Columns
+        {
+            get
+            {
+                return _model.Columns;
+            }
+            set
+            {
+                if (value > 0 && value < 10)
+                {
+                    _model.Columns = value;
+                    UpdateModels(true);
+                }
+            }
+        }
 
-		public ObservableNodeList TeamProjects { get; private set; }
+        public int Rows
+        {
+            get
+            {
+                return _model.Rows;
+            }
+            set
+            {
+                if (value > 0 && value < 100)
+                {
+                    _model.Rows = value;
+                    UpdateModels(true);
+                }
+            }
+        }
 
-		public ObservableNodeList BuildStatus { get; private set; }
+        public ObservableNodeList TeamProjects { get; private set; }
 
-		#endregion // Properties
+        public ObservableNodeList BuildStatus { get; private set; }
 
-		#region Constructors
+        #endregion // Properties
 
-		public BuildMonitorMenuVm(BuildMonitor model)
-		{
-			_model = model;
+        #region Constructors
 
-			this.TeamProjects = new ObservableNodeList();
+        public BuildMonitorMenuVm(BuildMonitor model)
+        {
+            _model = model;
 
-			// Build status
-			this.BuildStatus = new ObservableNodeList();
-			this.BuildStatus.Add(new BuildStatusNode(this, BuildFilterStatus.Failed, (_model.Status & BuildFilterStatus.Failed) != 0, "Failed"));
-			this.BuildStatus.Add(new BuildStatusNode(this, BuildFilterStatus.PartiallySucceeded, (_model.Status & BuildFilterStatus.PartiallySucceeded) != 0, "Partially succeeded"));
-			this.BuildStatus.Add(new BuildStatusNode(this, BuildFilterStatus.InProgress, (_model.Status & BuildFilterStatus.InProgress) != 0, "In progress"));
-			this.BuildStatus.Add(new BuildStatusNode(this, BuildFilterStatus.Succeeded, (_model.Status & BuildFilterStatus.Succeeded) != 0, "Succeeded"));
+            this.TeamProjects = new ObservableNodeList();
 
-			var qry = new TeamProjectQuery(_model.Id, null, OnTeamProjectsQueryCompleted);
-			qry.Query(false);
-		}
+            // Build status
+            this.BuildStatus = new ObservableNodeList();
+            this.BuildStatus.Add(new BuildStatusNode(this, BuildFilterStatus.Failed, (_model.Status & BuildFilterStatus.Failed) != 0, "Failed"));
+            this.BuildStatus.Add(new BuildStatusNode(this, BuildFilterStatus.PartiallySucceeded, (_model.Status & BuildFilterStatus.PartiallySucceeded) != 0, "Partially succeeded"));
+            this.BuildStatus.Add(new BuildStatusNode(this, BuildFilterStatus.InProgress, (_model.Status & BuildFilterStatus.InProgress) != 0, "In progress"));
+            this.BuildStatus.Add(new BuildStatusNode(this, BuildFilterStatus.Succeeded, (_model.Status & BuildFilterStatus.Succeeded) != 0, "Succeeded"));
 
-		#endregion // Constructors
+            var qry = new TeamProjectQuery(_model.Id, null, OnTeamProjectsQueryCompleted);
+            qry.Query(false);
+        }
 
-		#region Methods
+        #endregion // Constructors
 
-		private void Init()
-		{
-		}
+        #region Methods
 
-		private void OnTeamProjectsQueryCompleted(TeamProjectQuery qry)
-		{
-			if (_disposed)
-			{
-				return;
-			}
+        private void Init()
+        {
+        }
 
-			this.TeamProjects.Clear();
-	
-			if (qry.Exception != null)
-			{
-				this.TeamProjects.Add(new TeamProjectNode(this, true, "Request failed. Check the connection string, press Osiris icon on top left, choose Application options"));
-			}
-			else
-			{
-				foreach (var tp in qry.Results)
-				{
-					this.TeamProjects.Add(new TeamProjectNode(this, _model.TeamProjects.Exists(p => p == tp.Name), tp.Name));
-				}
-			}
+        private void OnTeamProjectsQueryCompleted(TeamProjectQuery qry)
+        {
+            if (_disposed)
+            {
+                return;
+            }
 
-			this.IsTeamProjectsEnabled = (qry.Exception == null);
-            
-		}
+            this.TeamProjects.Clear();
 
-		public void UpdateModels(bool updateQuery)
-		{
-			if (!updateQuery)
-			{
-				ViewModelEvents.Instance.SlideElementUpdated.Publish(_model);
-			}
-			else
-			{
-				var qry = new BuildQuery(_model.Id, null, _model.BuildFilter);
-				qry.Query(true);
-			}
-		}
+            if (qry.Exception != null)
+            {
+                this.TeamProjects.Add(new TeamProjectNode(this, true, "Request failed. Check the connection string, press Osiris icon on top left, choose Application options"));
+            }
+            else
+            {
+                foreach (var tp in qry.Results)
+                {
+                    this.TeamProjects.Add(new TeamProjectNode(this, _model.TeamProjects.Exists(p => p == tp.Name), tp.Name));
+                }
+            }
 
-		public void TeamProjectsChanged()
-		{
-			_model.TeamProjects.Clear();
-			_model.TeamProjects.AddRange(this.TeamProjects.Where(tp => tp.IsSelected).Select(tp => tp.Title));
-            
-			UpdateModels(true);
+            this.IsTeamProjectsEnabled = (qry.Exception == null);
+
+        }
+
+        public void UpdateModels(bool updateQuery)
+        {
+            if (!updateQuery)
+            {
+                ViewModelEvents.Instance.SlideElementUpdated.Publish(_model);
+            }
+            else
+            {
+                var qry = new BuildQuery(_model.Id, null, _model.BuildFilter);
+                qry.Query(true);
+            }
+        }
+
+        public void TeamProjectsChanged()
+        {
+            _model.TeamProjects.Clear();
+            _model.TeamProjects.AddRange(this.TeamProjects.Where(tp => tp.IsSelected).Select(tp => tp.Title));
+
+            UpdateModels(true);
 
             if (_model.TeamProjects.Count == 1) // Single team project selected
             {
-                if (_model.Title == "Untitled") // means it has not been set at all
-                    _model.Title = TeamProjects.First().Title;
+                var tp = _model.TeamProjects.First();
+                _model.Title = tp;
             }
             UpdateModels(false);
-		}
+        }
 
-		public void BuildStatusChanged()
-		{
-			_model.Status = 0;
-		
-			foreach (BuildStatusNode bs in this.BuildStatus)
-			{
-				if (bs.IsSelected)
-				{
-					_model.Status |= bs.Status;
-				}
-			}
+        public void BuildStatusChanged()
+        {
+            _model.Status = 0;
 
-			UpdateModels(true);
-		}
+            foreach (BuildStatusNode bs in this.BuildStatus)
+            {
+                if (bs.IsSelected)
+                {
+                    _model.Status |= bs.Status;
+                }
+            }
 
-		#endregion // Methods
+            UpdateModels(true);
+        }
 
-		#region IDisposable Members
+        #endregion // Methods
 
-		public void Dispose()
-		{
-			_disposed = true;
-		}
+        #region IDisposable Members
 
-		#endregion // IDisposable Members
-	}
+        public void Dispose()
+        {
+            _disposed = true;
+        }
 
-	public class TeamProjectNode : ComboWithCheckBoxNode
-	{
-		#region Fields
+        #endregion // IDisposable Members
+    }
 
-		BuildMonitorMenuVm _parent;
+    public class TeamProjectNode : ComboWithCheckBoxNode
+    {
+        #region Fields
 
-		#endregion // Fields
+        BuildMonitorMenuVm _parent;
 
-		#region Constructors+
+        #endregion // Fields
 
-		public TeamProjectNode(BuildMonitorMenuVm parent, bool selected, string name)
-			: base(name)
-		{
-			_parent = parent;
-			this.IsSelected = selected;
-		}
+        #region Constructors+
 
-		#endregion // Constructors
+        public TeamProjectNode(BuildMonitorMenuVm parent, bool selected, string name)
+            : base(name)
+        {
+            _parent = parent;
+            this.IsSelected = selected;
+        }
 
-		#region Methods
+        #endregion // Constructors
 
-		/// <summary>
-		/// Refactor to use ICommand binding instead...
-		/// </summary>
-		public override void Changed()
-		{
-			_parent.TeamProjectsChanged();
-		}
+        #region Methods
 
-		#endregion // Methods
-	}
+        /// <summary>
+        /// Refactor to use ICommand binding instead...
+        /// </summary>
+        public override void Changed()
+        {
+            _parent.TeamProjectsChanged();
+        }
 
-	public class BuildStatusNode : ComboWithCheckBoxNode
-	{
-		#region Fields
+        #endregion // Methods
+    }
 
-		BuildMonitorMenuVm _parent;
+    public class BuildStatusNode : ComboWithCheckBoxNode
+    {
+        #region Fields
 
-		#endregion // Fields
+        BuildMonitorMenuVm _parent;
 
-		#region Properties
+        #endregion // Fields
 
-		public BuildFilterStatus Status { get; private set; }
+        #region Properties
 
-		#endregion // Properties
+        public BuildFilterStatus Status { get; private set; }
 
-		#region Constructors+
+        #endregion // Properties
 
-		public BuildStatusNode(BuildMonitorMenuVm parent, BuildFilterStatus status, bool selected, string name)
-			: base(name)
-		{
-			this.IsSelected = selected;
-			_parent = parent;
-			this.Status = status;
-		}
+        #region Constructors+
 
-		#endregion // Constructors
+        public BuildStatusNode(BuildMonitorMenuVm parent, BuildFilterStatus status, bool selected, string name)
+            : base(name)
+        {
+            this.IsSelected = selected;
+            _parent = parent;
+            this.Status = status;
+        }
 
-		#region Methods
+        #endregion // Constructors
 
-		/// <summary>
-		/// Refactor to use ICommand binding instead...
-		/// </summary>
-		public override void Changed()
-		{
-			_parent.BuildStatusChanged();
-		}
+        #region Methods
 
-		#endregion // Methods
-	}
+        /// <summary>
+        /// Refactor to use ICommand binding instead...
+        /// </summary>
+        public override void Changed()
+        {
+            _parent.BuildStatusChanged();
+        }
+
+        #endregion // Methods
+    }
 
 }
