@@ -24,6 +24,7 @@
 
 	public interface IBuildMonitorMenuView
 	{
+         
 	}
 
 	public class BuildMonitorMenuVm : ViewModelBase
@@ -178,7 +179,7 @@
 	
 			if (qry.Exception != null)
 			{
-				this.TeamProjects.Add(new TeamProjectNode(this, true, "Request failed"));
+				this.TeamProjects.Add(new TeamProjectNode(this, true, "Request failed. Check the connection string, press Osiris icon on top left, choose Application options"));
 			}
 			else
 			{
@@ -189,6 +190,7 @@
 			}
 
 			this.IsTeamProjectsEnabled = (qry.Exception == null);
+            
 		}
 
 		public void UpdateModels(bool updateQuery)
@@ -208,7 +210,15 @@
 		{
 			_model.TeamProjects.Clear();
 			_model.TeamProjects.AddRange(this.TeamProjects.Where(tp => tp.IsSelected).Select(tp => tp.Title));
+            
 			UpdateModels(true);
+
+            if (_model.TeamProjects.Count == 1) // Single team project selected
+            {
+                if (_model.Title == "Untitled") // means it has not been set at all
+                    _model.Title = TeamProjects.First().Title;
+            }
+            UpdateModels(false);
 		}
 
 		public void BuildStatusChanged()
