@@ -2,23 +2,9 @@
 {
     #region Using
 
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Diagnostics;
-    using System.Windows.Input;
     using Osiris.Tfs.Monitor.Models;
-    using Osiris.Tfs.Report;
-    using Microsoft.TeamFoundation.VersionControl.Client;
-    using System.Net;
-    using Microsoft.TeamFoundation.Client;
-    using Microsoft.TeamFoundation.WorkItemTracking.Client;
-    using System.Windows.Threading;
-    using System.ComponentModel;
-    using System.Collections.ObjectModel;
-    using System.Windows;
-    using System.Collections.Specialized;
+
 
     #endregion // Using
 
