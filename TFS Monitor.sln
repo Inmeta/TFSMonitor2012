@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Text", "Text", "{9C1B4ADB-F7C3-4B38-8F9B-6347AF7E590F}"
 	ProjectSection(SolutionItems) = preProject
 		Scetch.txt = Scetch.txt
@@ -35,7 +37,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MS Test", "MS Test", "{0591663B-3DBA-4382-B56B-55258C52DE0A}"
 	ProjectSection(SolutionItems) = preProject
 		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
-		Osiris TFS Monitor.vsmdi = Osiris TFS Monitor.vsmdi
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsMonitor.Application.Wpf", "Osiris TFS Monitor\TfsMonitor.Application.Wpf.csproj", "{A4FE15D5-F164-4BA7-8F20-F333852D6413}"
@@ -53,7 +54,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{980841F9-107B-43C7-A80A-2A4DCADD0C3C}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
-		Osiris TFS Monitor1.vsmdi = Osiris TFS Monitor1.vsmdi
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Twitterizer", "Twitterizer", "{96D776BF-9420-4150-84C6-459CAD632DEE}"
@@ -70,34 +70,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Twitterizer", "Twitterizer"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "TfsMonitor.Bullshit.Setup", "TfsMonitor.Bullshit.Setup\TfsMonitor.Bullshit.Setup.wixproj", "{77D769F9-AF28-4183-98EF-A03518DBAD4B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F7389AF3-E710-4BE3-B481-602B2E7664F6}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://tfs.osiris.no:8080/tfs/defaultcollection
-		SccProjectUniqueName0 = TfsMonitor.Bullshit.Setup\\TfsMonitor.Bullshit.Setup.wixproj
-		SccProjectName0 = TfsMonitor.Bullshit.Setup
-		SccLocalPath0 = TfsMonitor.Bullshit.Setup
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = Osiris\u0020TFS\u0020Monitor\u0020Models\\TfsMonitor.Domain.csproj
-		SccProjectName2 = Osiris\u0020TFS\u0020Monitor\u0020Models
-		SccLocalPath2 = Osiris\u0020TFS\u0020Monitor\u0020Models
-		SccProjectUniqueName3 = Osiris\u0020TFS\u0020Monitor\u0020Tests\\TfsMonitor.Tests.csproj
-		SccProjectName3 = Osiris\u0020TFS\u0020Monitor\u0020Tests
-		SccLocalPath3 = Osiris\u0020TFS\u0020Monitor\u0020Tests
-		SccProjectUniqueName4 = Osiris\u0020TFS\u0020Monitor\\TfsMonitor.Application.Wpf.csproj
-		SccProjectName4 = Osiris\u0020TFS\u0020Monitor
-		SccLocalPath4 = Osiris\u0020TFS\u0020Monitor
-		SccProjectUniqueName5 = Osiris\u0020TFS\u0020Monitor\u0020Common\\TfsMonitor.Helpers.csproj
-		SccProjectName5 = Osiris\u0020TFS\u0020Monitor\u0020Common
-		SccLocalPath5 = Osiris\u0020TFS\u0020Monitor\u0020Common
-		SccProjectUniqueName6 = Osiris\u0020TFS\u0020Monitor\u0020Controls\\TfsMonitor.Application.Controls.csproj
-		SccProjectName6 = Osiris\u0020TFS\u0020Monitor\u0020Controls
-		SccLocalPath6 = Osiris\u0020TFS\u0020Monitor\u0020Controls
-	EndGlobalSection
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = Osiris TFS Monitor1.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -174,5 +153,8 @@ Global
 		{0D4FC989-812A-4215-8588-1B80A0F77C70} = {674A3B4D-9856-46C1-B154-52473609B691}
 		{159CE5DC-3F96-4070-834A-E957D1422965} = {674A3B4D-9856-46C1-B154-52473609B691}
 		{96D776BF-9420-4150-84C6-459CAD632DEE} = {674A3B4D-9856-46C1-B154-52473609B691}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Osiris TFS Monitor1.vsmdi
 	EndGlobalSection
 EndGlobal
