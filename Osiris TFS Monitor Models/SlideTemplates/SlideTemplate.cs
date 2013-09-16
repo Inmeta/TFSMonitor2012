@@ -27,7 +27,7 @@
 
 		#region Constructors
 
-		public SlideTemplate(string name, string description)
+		protected SlideTemplate(string name, string description)
 		{
 			this.Name = name;
 			this.Description = description;

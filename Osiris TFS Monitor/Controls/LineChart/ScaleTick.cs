@@ -22,9 +22,9 @@
 		/// <param name="maxValue"></param>
 		/// <param name="numTicks"></param>
 		/// <returns></returns>
-		public static double GetTick(double maxValue, out int numTicks)
+        public static Tuple<double, int> GetTick(double maxValue)
 		{
-			numTicks = 1;
+			int numTicks = 1;
 			double optiMax = maxValue * 2;
 			for (int i = 5; i <= 10; i++)
 			{
@@ -35,7 +35,7 @@
 					numTicks = i;
 				}
 			}
-			return optiMax;
+            return new Tuple<double, int>(optiMax, numTicks);
 		}
 
 		private static double BestTick(double maxValue, int mostTicks)

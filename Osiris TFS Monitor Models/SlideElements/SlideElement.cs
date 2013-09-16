@@ -52,7 +52,7 @@ using System.Xml.Serialization;
 
 		#endregion // Properties
 
-		public SlideElement()
+		protected SlideElement()
 		{
 			// Defaults
 			this.Id = AutoIdGenerator.GenerateId();

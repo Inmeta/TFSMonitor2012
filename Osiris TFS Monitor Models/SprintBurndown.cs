@@ -87,7 +87,7 @@ namespace Osiris.Tfs.Report
 		/// </summary>
 		/// <param name="teamProject"></param>
 		/// <param name="iterationWiId"></param>
-		public SprintBurndown(string teamProject, int iterationWiId, TimeSpan timeInterval,
+		protected SprintBurndown(string teamProject, int iterationWiId, TimeSpan timeInterval,
 			bool excludeWeekEnds, string estimateFieldName, string remainingFieldName)
 		{
 			// Set team project

@@ -146,9 +146,9 @@
 			Point maxValue = new Point(_lines.Max(l => (l.Count == 0) ? 0 : l.Max(p => p.X)), _lines.Max(l => (l.Count == 0) ? 0 : l.Max(p => p.Y)));
 
 			// Calculate nescessary factors
-			int numYTicks = 1;
-			double tickSize = ScaleTick.GetTick(maxValue.Y, out numYTicks) / numYTicks;
-
+			var tick = ScaleTick.GetTick(maxValue.Y);
+            int numYTicks = tick.Item2;
+            double tickSize = tick.Item1 / numYTicks;
 			double fontHeight = GetTextMeasure("1").Height;
 			double maxValueTextWidth = (_xValues == null) ? 0 : (_xValues.Max(v => GetTextMeasure(v).Width) / 2);
 
@@ -175,26 +175,9 @@
 			_origo = new Point(margin.Left, _canvas.ActualHeight - margin.Bottom);
 			double yTickHeight = tickSize * _pointFactor.Y;
 
+            DrawChartBackgroundTicks(numYTicks, tickSize, yTickHeight, margin);
 
-
-			// Draw background y-ticks
-			DrawChartBackgroundTicks(numYTicks, tickSize, yTickHeight, margin);
-
-			// Draw y-ticks
-			for (int i = 1; i <= numYTicks; i++)
-			{
-				DrawLine(_canvas, -5, i * yTickHeight, 1, i * yTickHeight, _options.AxisColor, _origo, 1);
-				TextBlock tb = new TextBlock();
-				tb.Foreground = _options.AxisColor;
-
-				var textValue = ((decimal)(i * tickSize));
-				var text = ((int)textValue).ToString();
-				tb.Text = text;
-				tb.FontFamily = _options.TextTypeface.FontFamily;
-				tb.FontSize = _options.FontSize;
-				tb.Margin = new Thickness(maxValueTextWidth - GetTextMeasure(text).Width - 5, _origo.Y - yTickHeight * i - ((fontHeight + 1) / 2), 0, 0);
-				_canvas.Children.Add(tb);
-			}
+            DrawYTicks(numYTicks, tickSize, fontHeight, maxValueTextWidth, yTickHeight);
 
 			// Draw x-ticks
 			if (_xValues != null)
@@ -215,6 +198,25 @@
 			// Draw legends
 			Rectangle legends = new Rectangle();
 		}
+
+        private void DrawYTicks(int numYTicks, double tickSize, double fontHeight, double maxValueTextWidth, double yTickHeight)
+        {
+            // Draw y-ticks
+            for (int i = 1; i <= numYTicks; i++)
+            {
+                DrawLine(_canvas, -5, i * yTickHeight, 1, i * yTickHeight, _options.AxisColor, _origo, 1);
+                TextBlock tb = new TextBlock();
+                tb.Foreground = _options.AxisColor;
+
+                var textValue = ((decimal)(i * tickSize));
+                var text = ((int)textValue).ToString();
+                tb.Text = text;
+                tb.FontFamily = _options.TextTypeface.FontFamily;
+                tb.FontSize = _options.FontSize;
+                tb.Margin = new Thickness(maxValueTextWidth - GetTextMeasure(text).Width - 5, _origo.Y - yTickHeight * i - ((fontHeight + 1) / 2), 0, 0);
+                _canvas.Children.Add(tb);
+            }
+        }
 
 		private void DrawXTitles(Thickness margin)
 		{
