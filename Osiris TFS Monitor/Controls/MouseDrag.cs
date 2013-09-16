@@ -3,17 +3,14 @@
 	#region Using
 
 	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Windows;
+    using System.Windows;
 	using System.Windows.Input;
 	using System.Windows.Controls;
-	using System.Diagnostics;
 
-	#endregion // Using
 
-	public delegate void MouseDragHandler(MouseDrag md, double offsetX, double offsetY);
+    #endregion // Using
+
+    public delegate void MouseDragHandler(MouseDrag md, double offsetX, double offsetY);
 	public delegate void MouseDragEndHandler();
 
 	/// <summary>
