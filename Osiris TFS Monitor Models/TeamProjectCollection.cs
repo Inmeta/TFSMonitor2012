@@ -39,11 +39,6 @@ namespace Osiris.Tfs.Report
             // Get team projects from TFS
             var structService = tfsProjects.GetService<Microsoft.TeamFoundation.Server.ICommonStructureService>();
             var teamProjects = structService.ListAllProjects().Select(a => a);
-            //var pc = GetCurrentProjectCollection();
-            //_projectCollectionSrc = new ProjectCollectionSource(getCurrrentCollectionName);
-            //var collection = ImpersonatedCollection.CreateImpersonatedCollection(new Uri(pc.CollectionUrl),
-            //    HttpContext.Current.User.Identity.Name);
-
 
 			// Add team project to collection
 			foreach (var tp in teamProjects)
