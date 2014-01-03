@@ -1,4 +1,6 @@
-﻿namespace Osiris.Tfs.Monitor
+﻿using System.Reflection;
+
+namespace Osiris.Tfs.Monitor
 {
 	#region Using
 
@@ -61,6 +63,8 @@
 				_activeSlide.DesignMode = value.Value;
 			}
 		}
+
+        
 
         public object CustomTabVm { get; set; }
 

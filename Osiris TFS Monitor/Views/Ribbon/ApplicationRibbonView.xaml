@@ -32,11 +32,12 @@
             
 		</r:Ribbon>
 
+        
 		<!-- Info icon -->
 		<Image Source="pack://application:,,,/Resources/Icons/Info24x23.png" RenderOptions.BitmapScalingMode="HighQuality" Width="17" Height="16" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,26,3,0"
 			   ToolTip="Opens Application Info Dialog" Cursor="Hand" MouseDown="ApplicationInfo_MouseDown"/>
-
-	</Grid>
+       
+    </Grid>
 
 
 </UserControl>

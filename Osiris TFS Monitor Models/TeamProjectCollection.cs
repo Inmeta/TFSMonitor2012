@@ -1,4 +1,6 @@
-﻿namespace Osiris.Tfs.Report
+﻿using Microsoft.TeamFoundation.Server;
+
+namespace Osiris.Tfs.Report
 {
 	#region Usings
 
@@ -11,11 +13,15 @@
 	using Microsoft.TeamFoundation.WorkItemTracking.Client;
 	using Microsoft.TeamFoundation.VersionControl.Client;
 	using Microsoft.TeamFoundation.Build.Client;
+    using Microsoft.TeamFoundation.Framework.Client;
+    using Microsoft.TeamFoundation.Framework.Common;
 
 	#endregion // Usings
 	
-	public class TeamProjectCollection : List<TeamProject>
+	public class TeamProjectCollection : List<ProjectInfo>
 	{
+        
+
 		#region Constructors
 
 		public TeamProjectCollection()
@@ -28,11 +34,19 @@
 
 		public void Load(TfsTeamProjectCollection tfsProjects)
 		{
-			var versionControlServer = tfsProjects.GetService<VersionControlServer>();
-			TeamProject[] teamProjects = versionControlServer.GetAllTeamProjects(true);
+            //var versionControlServer = tfsProjects.GetService<VersionControlServer>();
+            //TeamProject[] teamProjects = versionControlServer.GetAllTeamProjects(true);
+            // Get team projects from TFS
+            var structService = tfsProjects.GetService<Microsoft.TeamFoundation.Server.ICommonStructureService>();
+            var teamProjects = structService.ListAllProjects().Select(a => a);
+            //var pc = GetCurrentProjectCollection();
+            //_projectCollectionSrc = new ProjectCollectionSource(getCurrrentCollectionName);
+            //var collection = ImpersonatedCollection.CreateImpersonatedCollection(new Uri(pc.CollectionUrl),
+            //    HttpContext.Current.User.Identity.Name);
+
 
 			// Add team project to collection
-			foreach (TeamProject tp in teamProjects)
+			foreach (var tp in teamProjects)
 			{
 				this.Add(tp);
 			}
@@ -40,4 +54,7 @@
 
 		#endregion // Methods
 	}
+
+ 
+
 }

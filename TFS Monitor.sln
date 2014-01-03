@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Text", "Text", "{9C1B4ADB-F7C3-4B38-8F9B-6347AF7E590F}"
 	ProjectSection(SolutionItems) = preProject
@@ -143,6 +143,7 @@ Global
 		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Debug|x86.Build.0 = Debug|x86
 		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|Any CPU.ActiveCfg = Release|x86
 		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|Mixed Platforms.Build.0 = Release|x86
 		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|x86.ActiveCfg = Release|x86
 		{77D769F9-AF28-4183-98EF-A03518DBAD4B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
