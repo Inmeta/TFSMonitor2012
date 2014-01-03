@@ -178,9 +178,11 @@ namespace Osiris.Tfs.Monitor.Models
 				IBuildDetailSpec spec = bs.CreateBuildDetailSpec(tp);
 				spec.Status = BuildStatus.Failed | BuildStatus.InProgress | BuildStatus.PartiallySucceeded | BuildStatus.Succeeded;
 				spec.QueryOrder = BuildQueryOrder.StartTimeDescending;
-				spec.QueryOptions = QueryOptions.Definitions;
+				spec.QueryOptions = QueryOptions.All;
 				spec.MaxBuildsPerDefinition = 1;
+                spec.QueryOrder = BuildQueryOrder.FinishTimeDescending;
 				spec.InformationTypes = null;
+                
 				IBuildQueryResult details = bs.QueryBuilds(spec);
 				if (details != null && details.Builds != null)
 				{
