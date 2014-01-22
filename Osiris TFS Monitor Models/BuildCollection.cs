@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.Contracts;
+using Osiris.Tfs.Monitor.Models.Utilities;
 
 namespace Osiris.Tfs.Monitor.Models
 {
@@ -64,7 +65,8 @@ namespace Osiris.Tfs.Monitor.Models
 
 		internal Build(IBuildDetail bd)
 		{
-			this.BuildName = bd.BuildDefinition.Name;
+
+            this.BuildName = BuildUtility.GetBuildNameWithBranchName(bd);
 			this.TeamProject = bd.BuildDefinition.TeamProject;
 			this.Status = bd.Status;
 			this.StartTime = bd.StartTime;
@@ -179,16 +181,20 @@ namespace Osiris.Tfs.Monitor.Models
 				spec.Status = BuildStatus.Failed | BuildStatus.InProgress | BuildStatus.PartiallySucceeded | BuildStatus.Succeeded;
 				spec.QueryOrder = BuildQueryOrder.StartTimeDescending;
 				spec.QueryOptions = QueryOptions.All;
-				spec.MaxBuildsPerDefinition = 1;
+				spec.MaxBuildsPerDefinition = Properties.Settings.Default.MaxBuildsPerDefinition;
                 spec.QueryOrder = BuildQueryOrder.FinishTimeDescending;
 				spec.InformationTypes = null;
                 
 				IBuildQueryResult details = bs.QueryBuilds(spec);
+                
 				if (details != null && details.Builds != null)
 				{
-					blist.AddRange(details.Builds.Where(bd => bd.BuildDefinition.Enabled).Select(bd => new Build(bd)));
+                    IBuildDetail[] buildDetails = BuildUtility.FilterMontoredBuildsOnly(details);
+                    var builds = buildDetails.Where(bd => bd.BuildDefinition.Enabled).Select(bd => new Build(bd));
+				    var uniqueBuilds = BuildUtility.GetUniqueBuilds(builds);
+				    blist.AddRange(uniqueBuilds);
 				}
-			}
+            }
 
 			// Add grouped
 			var maxFetch = filter.MaxFetch;

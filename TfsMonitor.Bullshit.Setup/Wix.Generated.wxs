@@ -119,11 +119,17 @@
             <Component Id="cmp220C3A9B5CB10710C2CA2DEC19185CBA" Guid="*">
                 <File Id="filCF390B2E2EDABD42F8B319CF31E237D5" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.pdb" />
             </Component>
+            <Component Id="cmp1EF7D1589419008A6C87469AAA868430" Guid="*">
+                <File Id="filA186018C51E3FB1D2B57DD80F252DDFA" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.vshost.application" />
+            </Component>
             <Component Id="cmp3BCECCEE26B88A559331B4BD6AB1E3DF" Guid="*">
                 <File Id="fil22D31DEFE74041B4B2239D214A7C6A41" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.vshost.exe" />
             </Component>
             <Component Id="cmp27F49C06E262BA3BEAD25A0B2C5EFABC" Guid="*">
                 <File Id="fil6FD8F47EB385820A1C39AA3406DAA472" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.vshost.exe.config" />
+            </Component>
+            <Component Id="cmpFEBFEF2521FD6FD9FB0ADCE249CA29F5" Guid="*">
+                <File Id="fil9F59ACB550771DBF0D252CD1C76D81FD" KeyPath="yes" Source="$(var.AppProjectDir)\OsirisTFSMonitor.vshost.exe.manifest" />
             </Component>
             <Component Id="cmp5E7E59BF0B1FEA273E1916C278ADFCB0" Guid="*">
                 <File Id="filD406A7AFEE01546B72111EA5DA794F8A" KeyPath="yes" Source="$(var.AppProjectDir)\RibbonControlsLibrary.dll" />
@@ -207,8 +213,10 @@
             <ComponentRef Id="cmpC950FDABAADE9A4032907523A2A74FCF" />
             <ComponentRef Id="cmp6789327C97426F106D55BCF348B5BA28" />
             <ComponentRef Id="cmp220C3A9B5CB10710C2CA2DEC19185CBA" />
+            <ComponentRef Id="cmp1EF7D1589419008A6C87469AAA868430" />
             <ComponentRef Id="cmp3BCECCEE26B88A559331B4BD6AB1E3DF" />
             <ComponentRef Id="cmp27F49C06E262BA3BEAD25A0B2C5EFABC" />
+            <ComponentRef Id="cmpFEBFEF2521FD6FD9FB0ADCE249CA29F5" />
             <ComponentRef Id="cmp5E7E59BF0B1FEA273E1916C278ADFCB0" />
             <ComponentRef Id="cmp490994ED786AC2D5321D56F043319CA3" />
             <ComponentRef Id="cmpF207DCFB191438DC771E48469A8A1A13" />
